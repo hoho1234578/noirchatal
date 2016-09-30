@@ -1,0 +1,111 @@
+/***** Item list hover effect *****/
+
+.item_list {
+  padding-left: 10px;
+  padding-right:10px;
+  /*font-family: 'cwTeXHei', sans-serif;*/
+}
+
+.hovereffect {
+  width:100%;
+  height:100%;
+  float:left;
+  overflow:hidden;
+  position:relative;
+  text-align:center;
+  cursor:default;
+  margin-top:0px;
+  margin-bottom: 5px;
+}
+
+.hovereffect .overlay {
+  width:100%;
+  height:100%;
+  position:absolute;
+  overflow:hidden;
+  top:0;
+  left:0;
+  opacity:0;
+  background-color:rgba(0,0,0,0.5);
+  -webkit-transition:all .4s ease-in-out;
+  transition:all .4s ease-in-out
+}
+
+.hovereffect img {
+  display:block;
+  position:relative;
+  -webkit-transition:all .4s linear;
+  transition:all .4s linear;
+}
+
+.hovereffect a.info {
+  text-decoration:none;
+  display:inline-block;
+  text-transform:uppercase;
+  color:#fff;
+  /*border:1px solid #fff;*/
+  background-color:transparent;
+  opacity:0;
+  filter:alpha(opacity=0);
+  -webkit-transition:all .2s ease-in-out;
+  transition:all .2s ease-in-out;
+  font-size:17px;
+  /*margin:7% 0% 0% 0%;*/
+  padding-top:25%;
+  /*box-shadow:0 0 5px #fff;*/
+  height:100%;
+  width: 100%;
+  /*line-height: 4;*/
+}
+
+.hovereffect:hover img {
+  -ms-transform:scale(1.2);
+  -webkit-transform:scale(1.2);
+  transform:scale(1.2);
+}
+
+.hovereffect:hover .overlay {
+  opacity:1;
+  filter:alpha(opacity=100);
+}
+
+.hovereffect:hover a.info {
+  opacity:1;
+  filter:alpha(opacity=100);
+  -ms-transform:translatey(0);
+  -webkit-transform:translatey(0);
+  transform:translatey(0);
+}
+
+.hovereffect:hover a.info {
+  -webkit-transition-delay:.2s;
+  transition-delay:.2s;
+}
+
+.item_name {
+  /*font-family: 'cwTeXHei', sans-serif;*/
+  font-family: 'Noto Sans TC', sans-serif;
+  color: #272727;
+}
+
+.item_price {
+  font-family: 'Open Sans Condensed', sans-serif;
+  letter-spacing: 2px;
+  color: #272727;
+  font-weight:bold;
+}
+
+p.item_name, p.item_price {
+  color: white;
+  letter-spacing: 2px;
+}
+
+div.item_name, div.item_price {
+  display:none;
+}
+
+@media (max-width: 1024px) {
+  div.item_name, div.item_price {
+  	display:block;
+  }
+}

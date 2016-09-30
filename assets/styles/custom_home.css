@@ -1,0 +1,201 @@
+#home_carousel .carousel-inner {
+	max-height: 600px;
+}
+
+/***** Carousel *****/
+
+  /*** Full page carousel ***/
+/*  html,body{height:100%;}
+  .carousel,.item,#home_carousel.active{height:100%;}
+  .carousel-inner{height:100%;}
+  .fill{width:100%;height:100%;background-position:center;background-size:cover;}*/
+  /**************************/
+
+/* .carousel-control {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 5%;
+  font-size: 20px;
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, .6);
+  background-color: rgba(0, 0, 0, 0);
+  filter: alpha(opacity=50);
+  opacity: 0.5;
+}
+
+.carousel-control:hover,
+.carousel-control:focus {
+  color: #fff;
+  text-decoration: none;
+  filter: alpha(opacity=90);
+  outline: 0;
+  opacity: 0.9;
+}*/
+
+/***** Carousel indicators design *****/
+
+#home_carousel .carousel-indicators li {
+	-webkit-border-radius: 0;
+	border-radius: 1px;
+	height: 6px;
+	width: 50px;
+	margin: 0px 2px;
+	background-color: rgba(255, 255, 255, 0.5);
+	border: none;
+}
+
+#home_carousel .carousel-indicators .active {
+  height: 7px;
+	width: 50px;
+	margin: 0px 2px;
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+
+/***** Carousel slide fade in and out effect *****/
+
+.carousel-fade .carousel-inner .item {
+  opacity: 0.2;
+  -webkit-transition-property: opacity;
+  -moz-transition-property: opacity;
+  -o-transition-property: opacity;
+  transition-property: opacity;
+}
+
+.carousel-fade .carousel-inner > .item!important {
+  -webkit-transition: 2s;
+       -o-transition: 2s; 
+          transition: 2s;
+}
+
+.carousel-fade .carousel-inner .active {
+  opacity: 1;
+}
+.carousel-fade .carousel-inner .active.left,
+.carousel-fade .carousel-inner .active.right {
+  left: 0;
+  opacity: 0;
+  z-index: 1;
+}
+.carousel-fade .carousel-inner .next.left,
+.carousel-fade .carousel-inner .prev.right {
+  opacity: 1;
+}
+.carousel-fade .carousel-control {
+  z-index: 2;
+}
+
+
+@media (max-width: 978px) {
+	.carousel-indicators li, 
+	.carousel-indicators .active {
+		height: 5px;
+		width: 10%;
+		margin: 0px 1px;
+	}
+
+}
+
+/***** Carousel overlay div*****/
+#overlay { 
+  /*color:#fff;*/
+  position:absolute;
+  z-index:12;
+  /*top:40%;*/
+  top:300px;
+  left:0;
+  width:100%;
+  text-align:center;
+}
+
+
+/***** Button svg *****/
+/** http://cssdeck.com/labs/svg-border-hover-effect-1 **/
+
+#overlay .svg-wrapper {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+	  margin: 0 auto;
+  width: 250px;  
+}
+
+#overlay .shape {
+  stroke-dasharray: 140 540;
+  stroke-dashoffset: -365;
+  stroke-width: 5px;
+  fill: transparent;
+  stroke: white;
+  border-bottom: 5px solid black;
+  transition: stroke-width 1s, stroke-dashoffset 1s, stroke-dasharray 1s;
+}
+
+#overlay .text {
+  /*font-family: 'Muli', sans-serif;*/
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 20px;
+  line-height: 32px;
+  letter-spacing: 3px;
+  color: #fff;
+  top: -48px;
+  position: relative;
+}
+
+#overlay .svg-wrapper:hover .shape {
+  stroke-width: 2px;
+  stroke-dashoffset: 0;
+  stroke-dasharray: 620;
+}
+
+#overlay .text span { 
+  position:absolute; 
+  width:100%;
+  height:100%;
+  top:0;
+  left: 0;
+  z-index: 1;
+
+  /* fixes overlap error in IE7/8, 
+     make sure you have an empty gif */
+  /*background-image: url('empty.gif');*/
+}   
+
+@media (max-width: 978px) {
+	#overlay { 
+  	top:150px;
+	}
+	#overlay .text {
+		font-size: 12px;
+		line-height: 40px;
+	}
+  #overlay .shape {
+    stroke: transparent;
+  }
+  #overlay span {
+    border: solid 1px white;
+  }
+}
+
+
+/***** New in div*****/
+
+.home_page_section {
+  padding: 50px;
+  text-align: center;
+  /*font-size: 17px;*/
+}
+
+.home_page_section h3{
+  color: #272727;
+  letter-spacing: 3px;
+  font-family: 'Open Sans Condensed', sans-serif;
+}
+
+@media (max-width: 978px) {
+  .home_page_section {
+    padding: 50px 10px;
+  }
+}

@@ -1,0 +1,46 @@
+<div id="shop_page" class="row-fluid">
+  <div id="category_list_page" class="col-sm-2">
+    <%- partial ('../shop/category.ejs') %>
+  </div>
+  <div id="item_img_page" class="col-sm-6" >
+    <div class="carousel slide article-slide carousel-fade" id="article-photo-carousel">
+
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner cont-slider">
+        <% for(var i=0; i<item[0].item_img.length; i++) { %>
+          <div <% if (i === 0) { %> class="item active" <% } else { %> class="item" <% } %> >
+            <img alt="" title="" src="/images/collections/<%= item[0].item_img[i] %>" class="img-responsive">
+          </div>
+        <% } %>  
+      </div>
+
+      <!-- Indicators -->
+      <div id="item_img_indicators">
+        <ol class="carousel-indicators">
+          <% for(var i=0; i<item[0].item_img.length; i++) { %>
+              <li  <% if (i === 0) { %> class="active" <% } else { %> class="" <% } %> data-slide-to="<%= i %>" data-target="#article-photo-carousel">
+                <img class="img-responsive" src="/images/collections/<%= item[0].item_img[i] %>" alt="">
+              </li>
+          <% } %> 
+        </ol>
+      </div>
+    </div>
+  </div>
+  <div id="item_detail_page" class="col-sm-4">
+    <div id="item_detail_category"><%= item[0].item_category %></div>
+    <div id="item_detail_name"><%= item[0].item_name %></div>
+    <div id="item_detail_price">
+      NT$<%= item[0].price %>
+    </div>
+    <div id="item_detail_description"><%= item[0].item_description %></div>
+    <div class="form-group">數量
+      <select class="form-control" id="sel1">
+        <% for(var i=0; i<item[0].inventory_level; i++) { %>
+          <option><%= i+1 %></option>
+        <% } %> 
+      </select>
+    </div>
+    <a class="btn btn-default" href="#" role="button">加入購物車</a>  
+    
+  </div>
+</div>
