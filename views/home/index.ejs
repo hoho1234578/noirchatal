@@ -50,15 +50,19 @@
 
 <div id="new_in" class="container-fluid home_page_section">
   <h3>NEW IN</h2>
-  <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 item_list">
+  <% for(var i=0; i<new_items.length; i++) { if (new_items[i].available == true) { %>
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 item_list">
       <div class="hovereffect">
-          <img class="img-responsive" src="/images/collections/IMG_4185.JPG" alt="">
-          <div class="overlay">
-             <h2>Hover effect 1</h2>
-             <a class="info" href="#">QUICK VIEW</a>
-          </div>
+        <img class="img-responsive" src="/images/collections/<%= new_items[i].item_img %>" alt="">
+        <div class="overlay">
+          <a class="info" href="/collections/details/<%= new_items[i].id %>">
+            <p class="item_name"><%= new_items[i].item_name %></p>
+            <p class="item_price">NT$<%= new_items[i].price %></p>
+          </a>
+        </div>
       </div>
-  </div>
+    </div>
+  <% }} %>
 </div>
 
 <div id="about" class="container-fluid home_page_section">

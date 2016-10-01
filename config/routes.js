@@ -31,26 +31,27 @@ module.exports.routes = {
   * `assets` directory)                                                      *
   *                                                                          *
   ***************************************************************************/
+  'GET /': 'ItemsController.show_new_in',
   'GET /collections': 'ItemsController.show_item_list',
   'GET /collections/details/*': 'ItemsController.show_item',
 
-  '/': {
-    view: 'home/index'
-  },
+  // '/': {
+  //   view: 'home/index'
+  // },
 
-  '/collections': {
-    view: 'shop/index'
-  },
+  // '/collections': {
+  //   view: 'shop/index'
+  // },
 
-  '/collections/details/:*': {
-    view: 'shop/item_detail'
-  },
+  // '/collections/details/:*': {
+  //   view: 'shop/item_detail'
+  // },
 
 
 
-  'GET /create': 'ItemsController.create',
+  // 'GET /create': 'ItemsController.create',
   // 'GET /destroy': 'ItemsController.destroy',
-  'GET /remove': 'ItemsController.remove'
+  // 'GET /remove': 'ItemsController.remove'
 
 
   /***************************************************************************

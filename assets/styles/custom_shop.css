@@ -72,10 +72,6 @@
   padding-right:0px;
 }
 
-#item_detail_page {
-  padding-right: 30px;
-  padding-left: 30px;
-}
 
 @media (max-width: 978px) {
   #shop_page {
@@ -192,6 +188,47 @@
 
 /***** item_detail_page *****/
 
+
 #item_detail_page {
+  padding-right: 50px;
+  padding-left: 30px;
+}
+
+#item_detail_name {
+  font-size: 20px;
   font-family: 'Noto Sans TC', sans-serif;
+  padding: 5px 0px;
+}
+
+#item_detail_price {
+  color: rgb(176, 94, 82);
+  font-size: 17px;
+  font-family: 'Open Sans Condensed', sans-serif;
+  letter-spacing: 2px;
+  font-weight: bold;
+  padding-bottom: 10px;
+}
+
+#item_detail_page hr{
+  margin-top: 10px;
+  margin-bottom: 10px
+}
+
+#item_detail_quantity {
+  width:50%;
+  margin-top:5px;
+}
+
+#item_add_to_bag {
+  margin-top:5px;
+}
+
+#item_add_to_bag button {
+    width:100%;
+}
+
+@media (max-width: 768px) {
+  #item_detail_quantity {
+    width:100%;
+  }
 }

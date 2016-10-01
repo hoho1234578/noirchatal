@@ -183,7 +183,7 @@
 /***** New in div*****/
 
 .home_page_section {
-  padding: 50px;
+  padding: 50px 50px 0px 50px;
   text-align: center;
   /*font-size: 17px;*/
 }
@@ -191,6 +191,7 @@
 .home_page_section h3{
   color: #272727;
   letter-spacing: 3px;
+  margin-bottom: 20px;
   font-family: 'Open Sans Condensed', sans-serif;
 }
 

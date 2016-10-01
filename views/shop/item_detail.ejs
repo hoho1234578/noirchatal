@@ -27,20 +27,31 @@
     </div>
   </div>
   <div id="item_detail_page" class="col-sm-4">
-    <div id="item_detail_category"><%= item[0].item_category %></div>
+    <!--<div id="item_detail_category"><%= item[0].item_category %></div>-->
     <div id="item_detail_name"><%= item[0].item_name %></div>
-    <div id="item_detail_price">
-      NT$<%= item[0].price %>
-    </div>
+    <div id="item_detail_price">NT$<%= item[0].price %></div>
     <div id="item_detail_description"><%= item[0].item_description %></div>
-    <div class="form-group">數量
-      <select class="form-control" id="sel1">
-        <% for(var i=0; i<item[0].inventory_level; i++) { %>
-          <option><%= i+1 %></option>
-        <% } %> 
-      </select>
+    <hr>
+    <div id="item_detail_quantity">數量
+      <div class="input-group">
+        <div class="input-group-btn">
+          <!-- Buttons -->
+          <button class="btn btn-default" type="button">
+            <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+          </button>
+        </div>
+        <input type="text" class="form-control" value="1">
+        <div class="input-group-btn">
+          <!-- Buttons -->
+          <button class="btn btn-default" type="button">
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+          </button>
+        </div>
+      </div>
     </div>
-    <a class="btn btn-default" href="#" role="button">加入購物車</a>  
-    
+    <hr>
+    <div id="item_add_to_bag">
+      <button type="submit" class="btn btn-default">加入購物車</button>
+    </div>
   </div>
 </div>
