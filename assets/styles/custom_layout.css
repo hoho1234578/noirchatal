@@ -8,6 +8,10 @@
 
 /***** Homepage Title *****/
 
+body {
+	background-color: rgb(244, 244, 242);
+}
+
 #home_page_navbar .home_title {
 	font-family: 'Satisfy', cursive;
 	font-size: 30px;
@@ -16,7 +20,8 @@
 /***** Navbar *****/
 
 #home_page_navbar {
-	background-color: rgba(255, 255, 255, 0.7);
+	/*background-color: rgba(255, 255, 255, 0.7);*/
+	background-color: rgba(244, 244, 242, 0.7);
 	padding: 10px 30px 10px 30px;
 	border-color: transparent;
 	font-family: 'Open Sans Condensed', sans-serif;
@@ -66,7 +71,8 @@
 	#home_page_navbar {
 		font-size: 14px;
 		padding:0px;
-		background-color: rgba(255, 255, 255, 0.9);
+		/*background-color: rgba(255, 255, 255, 0.9);*/
+		background-color: rgba(244, 244, 242, 0.7);
 	}
 
 	#home_page_navbar .home_title {
