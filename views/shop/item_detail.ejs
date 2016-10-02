@@ -33,29 +33,14 @@
     <div id="item_detail_description"><%= item[0].item_description %></div>
     <hr>
     
-    <!--<div id="item_detail_quantity">數量
+    <div id="item_detail_quantity">數量
       <div class="input-group">
         <span class="input-group-addon">−</span>
         <input type="text" class="form-control" value="1">
         <span class="input-group-addon">＋</span>
       </div>
     </div>
-    <hr>
-    <div id="item_add_to_bag" data-toggle="tooltip" data-placement="right" title="加入購物車！">
-      <span class="glyphicon glyphicon-shopping-cart"></span>
-    </div> -->
-    
-      <a id="item_add_to_bag" rel="popover" data-html="true" data-content="
-        <div id='item_detail_quantity'>數量 
-          <div class='input-group'>
-            <span class='input-group-addon'>−</span>
-            <input type='text' class='form-control' value='1'>
-            <span class='input-group-addon'>＋</span>
-          </div>
-        </div>"
-        data-placement="right" >
-        <span class="glyphicon glyphicon-shopping-cart"></span>
-      </a>
-  
+    <button class="btn" type="submit" id="item_add_to_bag">加入購物車</button>
+
   </div>
 </div>

@@ -34,16 +34,28 @@ module.exports = {
 			return res.view('shop/item_detail', {item: item});
 		});
 	},
-	create: function (req, res) {
-	    Items.create({
-	    	item_category: '手提包系列',
-	    	item_name: '北歐森林手提包',
-	    	item_description: '有內裡，可放手機、鑰匙等雜物',
-	    	price: 350,
-	    	special_price: 299,
-	    	inventory_level: 1,
-	    	item_img: 'bag.jpg;bag_1.jpg',
-	    	available: true,
+	// create: function (req, res) {
+	//     Items.create({
+	//     	item_category: '手提包系列',
+	//     	item_name: '北歐森林手提包',
+	//     	item_description: '有內裡，可放手機、鑰匙等雜物',
+	//     	price: 350,
+	//     	special_price: 299,
+	//     	inventory_level: 1,
+	//     	item_img: 'bag.jpg;bag_1.jpg',
+	//     	available: true,
+	//     }).exec(function (err, newUser) {
+	//         // If there was an error, we negotiate it.
+	// 		if (err) { return res.serverError(err); }
+ //        });//</User.create>
+ //    },//</UserController.signup>
+    create: function (req, res) {
+	    User.create({
+	    	email: 'hoho1234578@gmail.com',
+	    	password: '123456',
+	    	mobile: '0988249628',
+	    	first_name: '禾',
+	    	last_name: '何',
 	    }).exec(function (err, newUser) {
 	        // If there was an error, we negotiate it.
 			if (err) { return res.serverError(err); }

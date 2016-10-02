@@ -46,7 +46,8 @@ module.exports.routes = {
   // '/collections/details/:*': {
   //   view: 'shop/item_detail'
   // },
-
+  'POST /login': 'AuthController.login',
+  '/logout': 'AuthController.logout',
 
 
   // 'GET /create': 'ItemsController.create',

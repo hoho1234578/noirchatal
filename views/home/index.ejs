@@ -91,13 +91,10 @@
 
 <div id="login" class="container-fluid home_page_section">
   <h3>LOGIN IN</h3>
-  <p>HTML templates are important prerequisites of modern, rich client applications.
-        To work their magic, frameworks like Backbone, Angular, Ember, and Knockout require
-        that you load these templates client-side.
-
-        By default, your Gruntfile is configured to automatically load and precompile
-        client-side JST templates in your `assets/templates` folder, then
-        include them here automatically (between TEMPLATES and TEMPLATES END).
-  </p>
+    <form method="POST" action="/login">
+      <input type="email" name="email">
+      <input type="password" name="password">
+      <input type="submit" value="submit">
+    </form>
 </div>
 

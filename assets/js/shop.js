@@ -6,7 +6,3 @@ $("#item_img_indicators li").on("click", function(){
 // $(function () {
 //   $('[data-toggle="tooltip"]').tooltip({trigger: 'manual'}).tooltip('show');
 // });
-
-$(function () {
-	$('a[rel=popover]').popover({trigger: 'manual'}).popover('show');
-});
