@@ -27,7 +27,7 @@ module.exports.policies = {
   ***************************************************************************/
 
   '*': true,
-  // 判斷某個c
+  // 判斷某個 controller 是否可接受非會員造訪
   'UserController': {
     '*': 'isAuthenticated'
   },
