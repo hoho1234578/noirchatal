@@ -42,18 +42,18 @@
 }
 #shop_navbar .navbar-nav > li > a:hover,
 #shop_navbar .navbar-nav > li > a:focus {
-    color: rgb(176, 94, 82);
+    color: rgb(180, 140, 80);
 }
 #shop_navbar .navbar-nav > .active > a, 
 #shop_navbar .navbar-nav > .active > a:hover, 
 #shop_navbar .navbar-nav > .active > a:focus {
-    color: rgb(176, 94, 82);
+    color: rgb(180, 140, 80);
     background-color: transparent;
 }
 #shop_navbar .navbar-nav > .open > a, 
 #shop_navbar .navbar-nav > .open > a:hover, 
 #hhop_navbar .navbar-nav > .open > a:focus {
-    color: rgb(176, 94, 82);
+    color: rgb(180, 140, 80);
     background-color: transparent;
 }
 
@@ -214,7 +214,7 @@
 }
 
 #item_detail_price {
-  color: rgb(176, 94, 82);
+  color: rgb(180, 140, 80);
   font-size: 17px;
   font-family: 'Open Sans Condensed', sans-serif;
   letter-spacing: 2px;

@@ -38,7 +38,8 @@ html, body {
 #home_page_navbar .navbar-brand:hover,
 #home_page_navbar .navbar-brand:focus {
     /*color: #5E5E5E;*/
-    color: rgb(176, 94, 82);
+    /*color: rgb(176, 94, 82);*/
+    color: rgb(180, 140, 80);
 }
 
 #home_page_navbar .navbar-nav > li > a, #home_page_navbar .navbar-brand {
@@ -50,18 +51,21 @@ html, body {
 }
 #home_page_navbar .navbar-nav > li > a:hover,
 #home_page_navbar .navbar-nav > li > a:focus {
-    color: rgb(176, 94, 82);
+    /*color: rgb(176, 94, 82);*/
+    color: rgb(180, 140, 80);
 }
 #home_page_navbar .navbar-nav > .active > a, 
 #home_page_navbar .navbar-nav > .active > a:hover, 
 #home_page_navbar .navbar-nav > .active > a:focus {
-    color: rgb(176, 94, 82);
+    /*color: rgb(176, 94, 82);*/
+    color: rgb(180, 140, 80);
     background-color: transparent;
 }
 #home_page_navbar .navbar-nav > .open > a, 
 #home_page_navbar .navbar-nav > .open > a:hover, 
 #home_page_navbar .navbar-nav > .open > a:focus {
-    color: rgb(176, 94, 82);
+    /*color: rgb(176, 94, 82);*/
+    color: rgb(180, 140, 80);
     background-color: transparent;
 }
 
