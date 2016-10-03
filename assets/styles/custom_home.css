@@ -183,54 +183,20 @@
 /***** New in div*****/
 
 .home_page_section {
-  padding: 50px 50px 0px 50px;
-  /*font-size: 17px;*/
+  /*padding: 50px 50px 50px 50px;*/
+  /*min-height: 100%; */
 }
 
 .home_page_section h3{
   color: #272727;
   letter-spacing: 3px;
-  margin-bottom: 20px;
+  /*margin-bottom: 50px;*/
   text-align: center;
   font-family: 'Open Sans Condensed', sans-serif;
 }
 
 @media (max-width: 978px) {
   .home_page_section {
-    padding: 50px 10px;
+    /*padding: 50px 10px;*/
   }
-}
-
-
-/***** Login div *****/
-
-#login {
-
-}
-
-#login input {
-  background-color: transparent;
-  border: 1px solid #272727;
-  border-radius: 0px 2px 2px 0px;
-
-}
-
-#login .input-group-addon {
-  background-color: transparent;
-  border: 1px solid #272727;
-  border-right:none;
-  border-radius: 2px 0px 0px 2px;
-}
-
-#login_form {
-  width: 320px;
-  margin: 0 auto; 
-}
-
-#login .input-group-addon {
-  color: #272727;
-}
-
-#login .glyphicon {
-  position: static;
 }

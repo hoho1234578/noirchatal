@@ -8,8 +8,10 @@
 
 /***** Homepage Title *****/
 
-body {
+html, body {
 	background-color: rgb(244, 244, 242);
+	/*height: 100%;*/
+    /*margin: 0;*/
 }
 
 #home_page_navbar .home_title {

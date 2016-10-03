@@ -264,11 +264,11 @@
   box-shadow: none;
 }
 
-#item_add_to_bag {
+/*#item_add_to_bag {
   margin-top:10px;
   width:100%;
   letter-spacing: 2px;
-  transition: all 0.3s ease 0s;
+  transition: all 0.5s ease 0s;
   border: 1px solid rgb(49, 113, 144);
   border-radius: 2px;
   background-color: rgb(49, 113, 144);
@@ -279,4 +279,22 @@
 
 #item_add_to_bag:hover {
   opacity: 0.8;
+}*/
+
+#item_add_to_bag {
+  background-color: #272727;
+  border: 1px solid #272727;
+  border-radius: 2px;
+  margin-top:10px;
+  width:100%;
+  letter-spacing: 2px;
+  transition: all 0.5s ease 0s;
+  padding: 7px 12px;
+  font-family: 'Noto Sans TC', sans-serif;
+  color: rgb(244, 244, 242);
+}
+
+#item_add_to_bag:hover {
+  background-color: transparent;
+  color: #272727;
 }
