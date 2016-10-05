@@ -6,7 +6,7 @@
  */
 
 module.exports = {
-	show_new_in: function (req, res) {
+	show_new_in: function (req, res) { 
 		Items.find({ where: {available: true}, limit: 4, sort: 'id DESC'}).exec(function (err, new_items) {
 			if (err) { return res.serverError(err); }
 			// console.log(new_items);
@@ -64,7 +64,7 @@ module.exports = {
     		available: req.param('available')
     	}).exec(function (err, newUser){
     		if (err) { return res.serverError(err); }
-    		else { return newUser; }
+    		else { return res.ok(newUser); }
     	});
 
 	  //   User.create({
