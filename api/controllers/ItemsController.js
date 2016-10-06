@@ -11,7 +11,7 @@ module.exports = {
 			if (err) { return res.serverError(err); }
 			// console.log(new_items);
 			for(var i = 0; i<new_items.length; i++){
-				var new_item_img_arr= new_items[i].item_img.split(";");
+				var new_item_img_arr= new_items[i].item_img;
 				new_items[i].item_img = new_item_img_arr[0];
 			}
 		    return res.view('home/index', {new_items: new_items});
@@ -21,7 +21,7 @@ module.exports = {
 		Items.find({sort: 'id DESC'}).exec(function (err, items) {
 			if (err) { return res.serverError(err); }
 			for(var i = 0; i<items.length; i++){
-				var item_img_arr= items[i].item_img.split(";");
+				var item_img_arr= items[i].item_img;
 				items[i].item_img = item_img_arr[0];
 			}
 			return res.view('shop/index', {items: items});
@@ -32,7 +32,7 @@ module.exports = {
 			if (err) { return res.serverError(err); }
 			// item[0].item_category = item[0].item_category.split(";");
 			test(item[0].item_category);
-			item[0].item_img = item[0].item_img.split(";");
+			item[0].item_img = item[0].item_img;
 			console.log("which");
 			return res.view('shop/item_detail', {item: item});
 
@@ -122,7 +122,7 @@ module.exports = {
 };
 
 var test = function (a) {
-	console.log(a.split(";"));
+	console.log(a);
 
 
 }
