@@ -6,7 +6,7 @@
  */
 
 module.exports = {
-	show_new_in: function (req, res) {
+	show_new_in: function (req, res) { 
 		Items.find({ where: {available: true}, limit: 4, sort: 'id DESC'}).exec(function (err, new_items) {
 			if (err) { return res.serverError(err); }
 			// console.log(new_items);
@@ -66,7 +66,6 @@ module.exports = {
         });//</User.create>
     },//</UserController.signup>
 
-
     // create: function (req, res) {
     	// console.log(req.param('item_category'));
 
@@ -83,6 +82,20 @@ module.exports = {
     	// }).exec(function (err, newUser){
     	// 	if (err) { return res.serverError(err); }
     	// 	else { return newUser; }
+    	// });
+
+    	// Items.create({
+    	// 	item_category: req.param('item_category'),
+    	// 	item_name: req.param('item_name'),
+    	// 	item_description: req.param('item_description'),
+    	// 	price: req.param('price'),
+    	// 	special_price: req.param('special_price'),
+    	// 	inventory_level: req.param('inventory_level'),
+    	// 	item_img: req.param('item_img'),
+    	// 	available: req.param('available')
+    	// }).exec(function (err, newUser){
+    	// 	if (err) { return res.serverError(err); }
+    	// 	else { return res.ok(newUser); }
     	// });
 
 	  //   User.create({
