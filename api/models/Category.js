@@ -7,8 +7,14 @@
 
 module.exports = {
 
-  attributes: {
-
-  }
+  	attributes: {
+  		category_name: {	//商品分類
+	  		type: 'text',
+	  		// required: true,
+		},
+		item: {
+			model: 'Items'
+		}
+  	}
 };
 

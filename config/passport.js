@@ -1,6 +1,6 @@
 var passport = require('passport'),
 LocalStrategy = require('passport-local').Strategy,
-bcrypt = require('bcryptjs');
+bcrypt = require('bcrypt');
 
 // After passport serializes the object, return the id
 passport.serializeUser(function(user, done) {
