@@ -30,8 +30,12 @@ module.exports = {
 	show_item: function (req, res) {
 		Items.find({id: req.params[0]}).exec(function (err, item) {
 			if (err) { return res.serverError(err); }
+			// item[0].item_category = item[0].item_category.split(";");
+			test(item[0].item_category);
 			item[0].item_img = item[0].item_img.split(";");
+			console.log("which");
 			return res.view('shop/item_detail', {item: item});
+
 		});
 	},
 
@@ -95,18 +99,7 @@ module.exports = {
     	// 	if (err) { return res.serverError(err); }
     	// 	else { return res.ok(newUser); }
     	// });
-
-	  //   User.create({
-	  //   	email: 'bunnyhj369@yahoo.com.tw',
-	  //   	password: '123456',
-	  //   	mobile: '0988249628',
-	  //   	first_name: '禾',
-	  //   	last_name: '何',
-	  //   }).exec(function (err, newUser) {
-	  //       // If there was an error, we negotiate it.
-			// if (err) { return res.serverError(err); }
-   //      });//</User.create>
-   //  },//</UserController.signup>
+   //  },
 	
 	destroy: function (req, res) {
 	    Items.destroy({
@@ -128,3 +121,8 @@ module.exports = {
 
 };
 
+var test = function (a) {
+	console.log(a.split(";"));
+
+
+}
