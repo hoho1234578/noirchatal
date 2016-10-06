@@ -35,54 +35,52 @@ module.exports = {
 		});
 	},
 
-	// addStoreCustomer: function(req, res){
- //        Store.create({Name: 'Sari Sari Store'}).exec(function(e,r){
- //            Customer.create({Name: 'Pedro', store: r.id}).exec(function(err, result){
- //                Customer.create({Name: 'Juan', store: r.id}).exec(function(err1, res1){
- //                    return res.json({ok: 'success'});
- //                });
- //            });
+	/***** For One to may associations *****/
+	// one_to_many: function (req, res) {
+ //        Items.create({
+	//     	item_name: '北歐森林手提包',
+	//     	item_description: '內袋設計，可放手機、鑰匙等雜物。',
+	//     	price: 350,
+	//     	special_price: 299,
+	//     	inventory_level: 3,
+	//     	item_img: 'bag.jpg;bag_1.jpg',
+	//     	available: true
+	//     }).exec(function (e, r) {
+	//     	Category.create({category_name: '手提袋', item: r.id}).exec(function(err, result){
+	//     		Category.create({category_name: '北歐森林', item: r.id}).exec(function(err1, res1){
+	//     			return res.json({ok: 'success'});
+	//     		});
+	//     	});
+	// 		if (e) { return res.serverError(e); }
  //        });
- //    },
+
+ //        Items.update({id: 1}, {item_category: [{id: 1},{id: 2},{id: 4}]}).exec(function (err, newUser) {
+	//         // If there was an error, we negotiate it.
+	// 		if (err) { return res.serverError(err); }
+ //        });
+	// },
 
 	create: function (req, res) {
-	    Items.create({
-	    	// item_category: r.id,
-	    	item_name: '北歐森林筆盒',
-	    	item_description: '內裡鬆緊袋可固定筆，另一邊內袋可放橡皮擦、卡片等雜物。',
-	    	price: 499,
-	    	special_price: 399,
+		Items.create({
+			item_category: '3;4',
+	    	item_name: '北歐森林手提包',
+	    	item_description: '有內裡，可放手機、鑰匙等雜物。',
+	    	price: 350,
+	    	special_price: 299,
 	    	inventory_level: 5,
-	    	item_img: 'IMG_4184.JPG;IMG_4184_1.jpg;IMG_4184_2.jpg',
+	    	item_img: 'bag.jpg;bag_1.jpg',
 	    	available: true
-	    }).exec(function (e, r) {
-	    	Category.create({category_name: '口金', item: r.id}).exec(function(err, result){
-	    		Category.create({category_name: '筆盒', item: r.id}).exec(function(err1, res1){
-	    			return res.json({ok: 'success'});
-	    		});
-	    	});
-	        // If there was an error, we negotiate it.
-			if (e) { return res.serverError(e); }
-        });//</User.create>
-    },//</UserController.signup>
+	    }).exec(function (err, newItem) {
+			if (err) { return res.serverError(err); }
+        });
+
+        Category.create({category_name: '手提袋'}).exec(function (err, newItem) {
+			if (err) { return res.serverError(err); }
+        });
+    },
 
     // create: function (req, res) {
     	// console.log(req.param('item_category'));
-
-
-    	// Items.create({
-    	// 	item_category: req.param('item_category'),
-    	// 	item_name: req.param('item_name'),
-    	// 	item_description: req.param('item_description'),
-    	// 	price: req.param('price'),
-    	// 	special_price: req.param('special_price'),
-    	// 	inventory_level: req.param('inventory_level'),
-    	// 	item_img: req.param('item_img'),
-    	// 	available: req.param('available')
-    	// }).exec(function (err, newUser){
-    	// 	if (err) { return res.serverError(err); }
-    	// 	else { return newUser; }
-    	// });
 
     	// Items.create({
     	// 	item_category: req.param('item_category'),

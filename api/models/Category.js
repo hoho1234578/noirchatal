@@ -10,11 +10,12 @@ module.exports = {
   	attributes: {
   		category_name: {	//商品分類
 	  		type: 'text',
-	  		// required: true,
-		},
+	  		required: true,
+		}
+		/* For One to may associations
 		item: {
 			model: 'Items'
-		}
+		} */
   	}
 };
 

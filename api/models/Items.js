@@ -8,6 +8,13 @@
 module.exports = {
 
     attributes: {
+    	item_category: {	//商品分類
+	  		type: 'text',
+	  		required: true
+	  		/* For One to may associations
+	  		collection: 'Category',
+	  		via: 'item', */
+		},
 		item_name: {	//品名
 		  	type: 'text',
 		  	required: true
@@ -33,12 +40,6 @@ module.exports = {
 		available: {	//是否顯示商品
 		  	type: 'boolean',
 		  	required: true
-		},
-		item_category: {	//商品分類
-	  		// type: 'text',
-	  		collection: 'Category',
-	  		via: 'item',
-	  		// required: true
 		}
     }
 };
