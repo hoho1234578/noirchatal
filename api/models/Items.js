@@ -9,7 +9,7 @@ module.exports = {
 
     attributes: {
     	item_category: {	//商品分類
-	  		type: 'text',
+	  		type: 'array',
 	  		required: true
 	  		/* For One to may associations
 	  		collection: 'Category',
@@ -34,7 +34,7 @@ module.exports = {
 		  	required: true
 		},
 		item_img: {	//商品照片
-		  	type: 'text',
+		  	type: 'array',
 		  	required: true
 		},
 		available: {	//是否顯示商品

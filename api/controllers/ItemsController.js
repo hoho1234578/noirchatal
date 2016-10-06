@@ -64,42 +64,42 @@ module.exports = {
  //        });
 	// },
 
-	create: function (req, res) {
-		Items.create({
-			item_category: '3;4',
-	    	item_name: '北歐森林手提包',
-	    	item_description: '有內裡，可放手機、鑰匙等雜物。',
-	    	price: 350,
-	    	special_price: 299,
-	    	inventory_level: 5,
-	    	item_img: 'bag.jpg;bag_1.jpg',
-	    	available: true
-	    }).exec(function (err, newItem) {
-			if (err) { return res.serverError(err); }
-        });
+	// create: function (req, res) {
+	// 	Items.create({
+	// 		item_category: '3;4',
+	//     	item_name: '北歐森林手提包',
+	//     	item_description: '有內裡，可放手機、鑰匙等雜物。',
+	//     	price: 350,
+	//     	special_price: 299,
+	//     	inventory_level: 5,
+	//     	item_img: 'bag.jpg;bag_1.jpg',
+	//     	available: true
+	//     }).exec(function (err, newItem) {
+	// 		if (err) { return res.serverError(err); }
+ //        });
 
-        Category.create({category_name: '手提袋'}).exec(function (err, newItem) {
-			if (err) { return res.serverError(err); }
-        });
+ //        Category.create({category_name: '手提袋'}).exec(function (err, newItem) {
+	// 		if (err) { return res.serverError(err); }
+ //        });
+ //    },
+
+    create: function (req, res) {
+    	console.log(req.param('item_category')[1]);
+
+    	Items.create({
+    		item_category: req.param('item_category'),
+    		item_name: req.param('item_name'),
+    		item_description: req.param('item_description'),
+    		price: req.param('price'),
+    		special_price: req.param('special_price'),
+    		inventory_level: req.param('inventory_level'),
+    		item_img: req.param('item_img'),
+    		available: req.param('available')
+    	}).exec(function (err, newUser){
+    		if (err) { return res.serverError(err); }
+    		else { return res.ok(newUser); }
+    	});
     },
-
-    // create: function (req, res) {
-    	// console.log(req.param('item_category'));
-
-    	// Items.create({
-    	// 	item_category: req.param('item_category'),
-    	// 	item_name: req.param('item_name'),
-    	// 	item_description: req.param('item_description'),
-    	// 	price: req.param('price'),
-    	// 	special_price: req.param('special_price'),
-    	// 	inventory_level: req.param('inventory_level'),
-    	// 	item_img: req.param('item_img'),
-    	// 	available: req.param('available')
-    	// }).exec(function (err, newUser){
-    	// 	if (err) { return res.serverError(err); }
-    	// 	else { return res.ok(newUser); }
-    	// });
-   //  },
 	
 	destroy: function (req, res) {
 	    Items.destroy({
