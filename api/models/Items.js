@@ -8,13 +8,10 @@
 module.exports = {
 
     attributes: {
-    	item_category: {	//商品分類
-	  		type: 'array',
-	  		required: true
-	  		/* For One to may associations
-	  		collection: 'Category',
-	  		via: 'item', */
-		},
+  //   	item_category: {	//商品分類
+	 //  		type: 'array',
+	 //  		required: true
+		// },
 		item_name: {	//品名
 		  	type: 'text',
 		  	required: true

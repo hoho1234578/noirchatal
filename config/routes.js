@@ -51,7 +51,7 @@ module.exports.routes = {
   '/logout': 'AuthController.logout',
 
 
-  'GET /create': 'ItemsController.create',
+  'POST /create': 'ItemsController.create',
   // 'GET /destroy': 'ItemsController.destroy',
   // 'GET /remove': 'ItemsController.remove'
 
