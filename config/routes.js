@@ -34,7 +34,7 @@ module.exports.routes = {
   'GET /': 'ItemsController.show_new_in',
   'GET /collections': 'ItemsController.show_item_list',
   'GET /collections/details/*': 'ItemsController.show_item',
-
+  
   // '/': {
   //   view: 'home/index'
   // },

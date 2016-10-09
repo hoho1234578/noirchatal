@@ -7,7 +7,7 @@
 
 module.exports = {
 	show_new_in: function (req, res) { 
-		Items.find({ where: {available: true}, limit: 4, sort: 'id DESC'}).exec(function (err, new_items) {
+		Items.find({ where: {available: true}, limit: 4, sort: 'id DESC' }).exec(function (err, new_items) {
 			if (err) { return res.serverError(err); }
 			for(var i = 0; i<new_items.length; i++){
 				new_items[i].item_img = new_items[i].item_img[0];
@@ -16,7 +16,7 @@ module.exports = {
 		});
 	},
 	show_item_list: function (req, res) {
-		Items.find({sort: 'id DESC'}).exec(function (err, items) {
+		Items.find({ where: {available: true}, sort: 'id DESC' }).exec(function (err, items) {
 			if (err) { return res.serverError(err); }
 			for(var i = 0; i<items.length; i++){
 				items[i].item_img = items[i].item_img[0];
@@ -27,9 +27,14 @@ module.exports = {
 	show_item: function (req, res) {
 		Items.find({id: req.params[0]}).exec(function (err, item) {
 			if (err) { return res.serverError(err); }
-			item[0].item_img = item[0].item_img;
-			return res.view('shop/item_detail', {item: item});
-
+			item = item[0];
+			if (item.available == true) {
+				item.item_img = item.item_img;
+				return res.view('shop/item_detail', {item: item});
+			}else{
+				return res.send('This item is not available now!');
+			}
+			
 		});
 	},
 
