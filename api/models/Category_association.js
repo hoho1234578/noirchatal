@@ -8,12 +8,19 @@
 module.exports = {
 
   	attributes: {
-  		parents: {
+  		parents_id: {
 	  		type: 'integer',
 	  		required: true,
 		},
-		child: {
+		parents_name: {
+	  		type: 'string',
+	  		required: true,
+		},
+		child_id: {
 	  		type: 'integer'
+		},
+		child_name: {
+			type: 'string'
 		}
   	}
 };

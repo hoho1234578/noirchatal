@@ -7,7 +7,7 @@
 
 module.exports = {
 	show_new_in: function (req, res) { 
-		Items.find({ where: {available: true}, limit: 4, sort: 'id DESC'}).exec(function (err, new_items) {
+		Items.find({ where: {available: true}, limit: 4, sort: 'id DESC' }).exec(function (err, new_items) {
 			if (err) { return res.serverError(err); }
 			for(var i = 0; i<new_items.length; i++){
 				new_items[i].item_img = new_items[i].item_img[0];
@@ -16,45 +16,65 @@ module.exports = {
 		});
 	},
 	show_item_list: function (req, res) {
-		Items.find({sort: 'id DESC'}).exec(function (err, items) {
-			if (err) { return res.serverError(err); }
-			for(var i = 0; i<items.length; i++){
-				// var item_img_arr= items[i].item_img;
-				// items[i].item_img = item_img_arr[0];
-				items[i].item_img = items[i].item_img[0];
-			}
-			return res.view('shop/index', {items: items});
-		});
+		var id = req.params[0].split("+");
+		console.log(id);
+		// if (id.length == 1) {
+			Category.find({id: id}).exec(function (err, items) {
+				Items.find({ where: {id: items[0].items, available: true}, sort: 'id DESC' }).exec(function (err, items) {
+					if (err) { return res.serverError(err); }
+					for(var i = 0; i<items.length; i++){
+						items[i].item_img = items[i].item_img[0];
+					}
+					return res.view('shop/index', {items: items});
+				});
+			});
+		// }else if (id.length == 2) {
+		// 	Category.find({id: [id[0],id[1]]}).exec(function (err, items) {
+		// 		console.log("two:"+items[0].items+" and "+items[1].items);
+
+		// 	});
+		// }
+		
+
+		// Items.find({ where: {available: true}, sort: 'id DESC' }).exec(function (err, items) {
+		// 	if (err) { return res.serverError(err); }
+		// 	for(var i = 0; i<items.length; i++){
+		// 		items[i].item_img = items[i].item_img[0];
+		// 	}
+		// 	return res.view('shop/index', {items: items});
+		// });
 	},
 	show_item: function (req, res) {
 		Items.find({id: req.params[0]}).exec(function (err, item) {
 			if (err) { return res.serverError(err); }
-			// item[0].item_category = item[0].item_category.split(";");
-			// test(item[0].item_category);
-			item[0].item_img = item[0].item_img;
-			// console.log("which");
-			return res.view('shop/item_detail', {item: item});
-
+			item = item[0];
+			if (item.available == true) {
+				item.item_img = item.item_img;
+				return res.view('shop/item_detail', {item: item});
+			}else{
+				return res.send('This item is not available now!');
+			}
+			
 		});
 	},
 
     create: function (req, res) {
-    	// Items.create({
-    	// 	item_name: req.param('item_name'),
-    	// 	item_description: req.param('item_description'),
-    	// 	price: req.param('price'),
-    	// 	special_price: req.param('special_price'),
-    	// 	inventory_level: req.param('inventory_level'),
-    	// 	item_img: req.param('item_img'),
-    	// 	available: req.param('available')
+    	Items.create({
+    		item_name: req.param('item_name'),
+    		item_description: req.param('item_description'),
+    		price: req.param('price'),
+    		special_price: req.param('special_price'),
+    		inventory_level: req.param('inventory_level'),
+    		item_img: req.param('item_img'),
+    		available: req.param('available')
     	
     	// Category.create({
     	// 	category_name: req.param('category_name'),
     	// 	items: req.param('items')
 
-    	Category_association.create({
-    		parents: req.param('parents'),
-    		child: req.param('child')
+    	// Category_association.create({
+    	// 	parents: req.param('parents'),
+    	// 	child: req.param('child')
     	}).exec(function (err, newUser){
     		if (err) { return res.serverError(err); }
     		else { return res.ok(newUser); }
@@ -81,8 +101,8 @@ module.exports = {
 
 };
 
-var test = function (a) {
-	console.log(a);
+// var test = function (a) {
+// 	console.log(a);
 
 
-}
+// }

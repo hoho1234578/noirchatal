@@ -32,6 +32,12 @@ module.exports.policies = {
     '*': 'isAuthenticated'
   },
 
+  // 判斷 ItemsController 裡有哪些 actions 要顯示 category
+  'ItemsController': {
+    'show_item_list': 'dynamicCategory',
+    'show_item': 'dynamicCategory'
+  }
+
   /***************************************************************************
   *                                                                          *
   * Here's an example of mapping some policies to run before a controller    *
