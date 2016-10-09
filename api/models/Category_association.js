@@ -17,10 +17,10 @@ module.exports = {
 	  		required: true,
 		},
 		child_id: {
-	  		type: 'integer'
+	  		type: 'array'
 		},
 		child_name: {
-			type: 'string'
+			type: 'array'
 		}
   	}
 };

@@ -1,4 +1,3 @@
-<%= category[0].parents %>
 <div class="sidebar-nav" data-spy="affix">
   <div id="shop_navbar" class="navbar navbar-default" role="navigation">
 	<div class="navbar-header">
@@ -9,14 +8,16 @@
 	  <ul class="nav navbar-nav">
 	  	<li class="active"><a href="#">NEW IN</a></li>
 	  	<% for(var i=0; i<category.length; i++) { %>
-	  	  <%if(category[i].child_id != null) {%>
+	  	  <% if(category[i].child_id != null) {%>
           	<li>
           	  <a href="/collections/tags/<%= category[i].parents_id %>"><%= category[i].parents_name %></a>
 		      <ul class=" nav navbar-nav">
+		      	<% for(var j=0; j<category[i].child_id.length; j++) {%>
 		        <li>
-		          <a href="/collections/tags/<%= category[i].parents_id %>+<%= category[i].child_id %>">
-		          <%= category[i].child_name %></a>
+		          <a href="/collections/tags/<%= category[i].parents_id %>+<%= category[i].child_id[j] %>">
+		          <%= category[i].child_name[j] %></a>
 		        </li>
+		        <% } %>
 		      </ul>
 		    </li>
 		  <% }else{ %>

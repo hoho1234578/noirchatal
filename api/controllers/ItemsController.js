@@ -9,7 +9,7 @@ module.exports = {
 	show_new_in: function (req, res) { 
 		Items.find({ where: {available: true}, limit: 4, sort: 'id DESC' }).exec(function (err, new_items) {
 			if (err) { return res.serverError(err); }
-			for(var i = 0; i<new_items.length; i++){
+			for (var i = 0; i<new_items.length; i++){
 				new_items[i].item_img = new_items[i].item_img[0];
 			}
 		    return res.view('home/index', {new_items: new_items});
@@ -17,32 +17,23 @@ module.exports = {
 	},
 	show_item_list: function (req, res) {
 		var id = req.params[0].split("+");
-		console.log(id);
-		// if (id.length == 1) {
 			Category.find({id: id}).exec(function (err, items) {
-				Items.find({ where: {id: items[0].items, available: true}, sort: 'id DESC' }).exec(function (err, items) {
+				
+				var id_arr = items[0].items;
+				if (items.length > 1){
+					for (var i = 1; i < items.length; i++){
+						id_arr = intersect(id_arr, items[i].items);
+					}
+				}
+
+				Items.find({ where: {id: id_arr, available: true}, sort: 'id DESC' }).exec(function (err, items) {
 					if (err) { return res.serverError(err); }
-					for(var i = 0; i<items.length; i++){
+					for(var i = 0; i < items.length; i++){
 						items[i].item_img = items[i].item_img[0];
 					}
 					return res.view('shop/index', {items: items});
 				});
 			});
-		// }else if (id.length == 2) {
-		// 	Category.find({id: [id[0],id[1]]}).exec(function (err, items) {
-		// 		console.log("two:"+items[0].items+" and "+items[1].items);
-
-		// 	});
-		// }
-		
-
-		// Items.find({ where: {available: true}, sort: 'id DESC' }).exec(function (err, items) {
-		// 	if (err) { return res.serverError(err); }
-		// 	for(var i = 0; i<items.length; i++){
-		// 		items[i].item_img = items[i].item_img[0];
-		// 	}
-		// 	return res.view('shop/index', {items: items});
-		// });
 	},
 	show_item: function (req, res) {
 		Items.find({id: req.params[0]}).exec(function (err, item) {
@@ -101,8 +92,12 @@ module.exports = {
 
 };
 
-// var test = function (a) {
-// 	console.log(a);
+// 找兩陣列交集
+var intersect = function (a, b) {
+	var t;
+    if (b.length > a.length) t = b, b = a, a = t; // indexOf to loop over shorter
+    return a.filter(function (e) {
+        if (b.indexOf(e) !== -1) return true;
+    });
 
-
-// }
+}
