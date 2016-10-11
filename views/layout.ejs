@@ -8,6 +8,15 @@
 <!--     <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet"> -->
     <title><%=typeof title == 'undefined' ? 'New Sails App' : title%></title>
 
+    <link rel="stylesheet" href="/styles/bootstrap.css">
+    <link rel="stylesheet" href="/styles/custom_layout.css">
+
+
+    <script src="/js/dependencies/sails.io.js"></script>
+    <script src="/js/vendor/jquery-3.1.1.js"></script>
+    <script src="/js/vendor/bootstrap.js"></script>
+
+
     <!-- Viewport mobile tag for sensible mobile support -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -34,14 +43,18 @@
     -->
 
     <!--STYLES-->
-    <link rel="stylesheet" href="/styles/bootstrap.css">
-    <link rel="stylesheet" href="/styles/custom_home.css">
-    <link rel="stylesheet" href="/styles/custom_layout.css">
-    <link rel="stylesheet" href="/styles/custom_shop_item.css">
-    <link rel="stylesheet" href="/styles/custom_shop.css">
-    <link rel="stylesheet" href="/styles/importer.css">
-    <link rel="stylesheet" href="/styles/membership.css">
+    
     <!--STYLES END-->
+    <% if (scripts) { %>
+        <% for (i = 0; i < scripts.length; i++) { %>
+            <script src="<%- scripts[i] %>"></script>
+        <% } %>
+    <% } %>
+    <% if (stylesheets) { %>
+        <% for (i = 0; i < stylesheets.length; i++) { %>
+            <link rel="stylesheet" href="<%- stylesheets[i] %>">
+        <% } %>
+    <% } %>
   </head>
   <nav id="home_page_navbar" class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
@@ -131,9 +144,6 @@
     <!--SCRIPTS-->
     <script src="/js/dependencies/sails.io.js"></script>
     <script src="/js/vendor/jquery-3.1.1.js"></script>
-    <script src="/js/home.js"></script>
-    <script src="/js/shop.js"></script>
-    <script src="/js/vendor/bootstrap.js"></script>
     <!--SCRIPTS END-->
   </body>
 </html>

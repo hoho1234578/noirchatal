@@ -12,7 +12,16 @@ module.exports = {
 			for (var i = 0; i<new_items.length; i++){
 				new_items[i].item_img = new_items[i].item_img[0];
 			}
-		    return res.view('home/index', {new_items: new_items});
+		    return res.view('home/index', {
+		    	new_items: new_items,
+		    	scripts: [
+                	'/js/home.js'
+                ],
+                stylesheets: [
+                	'/styles/custom_home.css',
+                	'/styles/custom_shop_item.css'
+                ]
+		    });
 		});
 	},
 	show_item_list: function (req, res) {
@@ -31,7 +40,13 @@ module.exports = {
 					for(var i = 0; i < items.length; i++){
 						items[i].item_img = items[i].item_img[0];
 					}
-					return res.view('shop/index', {items: items});
+					return res.view('shop/index', {
+						items: items,
+						scripts: [
+		                ],
+		                stylesheets: [
+		                ]
+					});
 				});
 			});
 	},
@@ -41,7 +56,16 @@ module.exports = {
 			item = item[0];
 			if (item.available == true) {
 				item.item_img = item.item_img;
-				return res.view('shop/item_detail', {item: item});
+				return res.view('shop/item_detail', {
+					item: item,
+					scripts: [
+		                '/js/shop.js'
+		            ],
+		            stylesheets: [
+		            	'/styles/custom_shop_item.css',
+                		'/styles/custom_shop.css'
+		            ]
+				});
 			}else{
 				return res.send('This item is not available now!');
 			}
