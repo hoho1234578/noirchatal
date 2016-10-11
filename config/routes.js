@@ -44,10 +44,7 @@ module.exports.routes = {
   //   view: 'shop/index'
   // },
 
-  'GET /login': {
-    view: 'membership/login'
-  },
-
+  'GET /login': 'AuthController.getLoginPage',
   'POST /login': 'AuthController.login',
   '/logout': 'AuthController.logout',
 
