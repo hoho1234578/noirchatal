@@ -6,12 +6,12 @@
 	</div>
 	<div class="navbar-collapse collapse sidebar-navbar-collapse">
 	  <ul class="nav navbar-nav">
-	  	<li class="active"><a href="#">NEW IN</a></li>
-	  	<% for(var i=0; i<category.length; i++) { %>
+	  	<li class="active"><a href="/collections/new_in">NEW IN</a></li>
+	  	<% for(var i = 0; i < category.length; i++) { %>
 	  	  <% if(category[i].child_id != null) {%>
           	<li>
           	  <a href="/collections/tags/<%= category[i].parents_id %>"><%= category[i].parents_name %></a>
-		      <ul class=" nav navbar-nav">
+		      <ul class="nav navbar-nav sub-nav">
 		      	<% for(var j=0; j<category[i].child_id.length; j++) {%>
 		        <li>
 		          <a href="/collections/tags/<%= category[i].parents_id %>+<%= category[i].child_id[j] %>">
@@ -21,7 +21,9 @@
 		      </ul>
 		    </li>
 		  <% }else{ %>
-		  	<li><a href="/collections/tags/<%= category[i].parents_id %>"><%= category[i].parents_name %></a></li>
+		  	<li>
+		  	  <a href="/collections/tags/<%= category[i].parents_id %>"><%= category[i].parents_name %></a>
+		  	</li>
         <% }} %>
 	  </ul>
 	</div>

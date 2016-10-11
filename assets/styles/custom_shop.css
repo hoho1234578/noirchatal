@@ -30,7 +30,7 @@
   border: none;
   padding-left: 30px;
   font-family: 'Open Sans Condensed', sans-serif;
-  font-size: 15px;
+  font-size: 14px;
 }
 
 #shop_navbar .navbar-nav > li > a, #shop_navbar .navbar-brand {
@@ -39,6 +39,8 @@
     -o-transition: all ease .5s;
     transition: all ease .5s;
     color: #272727;
+    padding-top: 0px;
+    padding-bottom: 0px;
 }
 #shop_navbar .navbar-nav > li > a:hover,
 #shop_navbar .navbar-nav > li > a:focus {
@@ -56,6 +58,20 @@
     color: rgb(180, 140, 80);
     background-color: transparent;
 }
+
+#shop_navbar ul:first-child > li {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+#shop_navbar .sub-nav li{
+  padding-top: 8px;
+}
+
+
+
+
+
 
 #item_list_page {
   padding-right:50px;
@@ -94,6 +110,9 @@
 @media (max-width: 760px) {
   #shop_navbar {
     padding-left:0px;
+  }
+  #shop_navbar .sub-nav ul{
+    padding-left: 10px;
   }
 }
 
