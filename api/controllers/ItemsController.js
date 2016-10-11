@@ -19,7 +19,7 @@ module.exports = {
                 ],
                 stylesheets: [
                 	'/styles/custom_home.css',
-                	'/styles/custom_shop_item.css'		// 主要效果: 圖片 hober
+                	'/styles/custom_shop_item.css'		// 主要效果: 圖片 hover
                 ]
 		    });
 		});

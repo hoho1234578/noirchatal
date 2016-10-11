@@ -1,4 +1,4 @@
-<div class="sidebar-nav" data-spy="affix">
+<div class="sidebar-nav">
   <div id="shop_navbar" class="navbar navbar-default" role="navigation">
 	<div class="navbar-header">
 	  <button type="button" class="navbar-toggle glyphicon glyphicon-menu-down" data-toggle="collapse" data-target=".sidebar-navbar-collapse"></button>
@@ -9,6 +9,7 @@
 	  	<li class="active"><a href="/collections/new_in">NEW IN</a></li>
 	  	<% for(var i = 0; i < category.length; i++) { %>
 	  	  <% if(category[i].child_id != null) {%>
+          	<hr>
           	<li>
           	  <a href="/collections/tags/<%= category[i].parents_id %>"><%= category[i].parents_name %></a>
 		      <ul class="nav navbar-nav sub-nav">
@@ -21,6 +22,7 @@
 		      </ul>
 		    </li>
 		  <% }else{ %>
+		  	<hr>
 		  	<li>
 		  	  <a href="/collections/tags/<%= category[i].parents_id %>"><%= category[i].parents_name %></a>
 		  	</li>

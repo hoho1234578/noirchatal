@@ -69,6 +69,13 @@
 
 }
 
+#shop_navbar hr {
+  margin:0px;
+  width:75%;
+  border-top: 1px dotted rgb(223, 221, 216);
+  margin-left: 10px;
+}
+
 /* make sidebar nav vertical */ 
 @media (min-width: 768px) {
   .sidebar-nav .navbar .navbar-collapse {
@@ -103,7 +110,9 @@
     padding-left: 15px;
     margin-top: 0px;
   }
-
+  #shop_navbar hr {
+    border-top: none;
+  }
 }
 
 @media (max-width: 978px) {
