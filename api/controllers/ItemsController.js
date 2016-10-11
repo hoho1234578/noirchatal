@@ -19,7 +19,7 @@ module.exports = {
                 ],
                 stylesheets: [
                 	'/styles/custom_home.css',
-                	'/styles/custom_shop_item.css'
+                	'/styles/custom_shop_item.css'		// 主要效果: 圖片 hober
                 ]
 		    });
 		});
@@ -45,6 +45,8 @@ module.exports = {
 						scripts: [
 		                ],
 		                stylesheets: [
+			                '/styles/custom_shop_item.css',		// 主要效果: 圖片 hover
+	                		'/styles/custom_shop.css'			// 主要效果: 讓圖片貼齊上方 menu
 		                ]
 					});
 				});
@@ -62,8 +64,7 @@ module.exports = {
 		                '/js/shop.js'
 		            ],
 		            stylesheets: [
-		            	'/styles/custom_shop_item.css',
-                		'/styles/custom_shop.css'
+                		'/styles/custom_shop.css'			// 主要效果: 讓圖片貼齊上方 menu
 		            ]
 				});
 			}else{
