@@ -87,6 +87,12 @@ html, body {
 	}
 }
 
+@media (min-width: 768px) and (max-width: 978px){
+	#home_page_navbar .navbar-brand {
+		padding-left: 0px;
+	}
+}
+
 /***** Carousel slide fade in and out effect *****/
 
 .carousel-fade .carousel-inner .item {

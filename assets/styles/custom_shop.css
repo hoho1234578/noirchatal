@@ -13,26 +13,6 @@
   padding-right:0px;
 }
 
-@media (max-width: 978px) {
-  #shop_page {
-    margin-top: 50px;
-  }
-  #shop_navbar {
-    padding-left:20px;
-    font-size: 14px;
-  }
-  #item_list_page {
-    padding-right:10px;
-    padding-left: 10px;
-  }
-  #item_img_page {
-    padding-right: 15px;
-    padding-left: 15px;
-  }
-  .affix {
-    position:static;
-  }
-}
 
 
 /***** Category list *****/
@@ -56,8 +36,10 @@
     -o-transition: all ease .5s;
     transition: all ease .5s;
     color: #272727;
-    padding-top: 0px;
-    padding-bottom: 0px;
+}
+#shop_navbar .navbar-nav > li > a {
+  padding-top: 0px;
+  padding-bottom: 0px;
 }
 #shop_navbar .navbar-nav > li > a:hover,
 #shop_navbar .navbar-nav > li > a:focus {
@@ -109,15 +91,45 @@
   }
 }
 
-@media (max-width: 760px) {
+@media (max-width: 767px) {
   #shop_navbar {
     padding-left:0px;
   }
-  #shop_navbar .sub-nav ul{
+  #shop_navbar ul:first-child > li {
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+  #shop_navbar .sub-nav{
+    padding-left: 15px;
+    margin-top: 0px;
+  }
+
+}
+
+@media (max-width: 978px) {
+  #shop_page {
+    margin-top: 50px;
+  }
+  
+  #item_list_page {
+    padding-right:10px;
     padding-left: 10px;
+  }
+  #item_img_page {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+  .affix {
+    position:static;
   }
 }
 
+@media (min-width: 768px) and (max-width: 978px){
+  #shop_navbar {
+    padding-left:0px;
+    font-size: 14px;
+  }
+}
 
 /***** item_img_page *****/
 
