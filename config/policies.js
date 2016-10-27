@@ -27,14 +27,15 @@ module.exports.policies = {
   ***************************************************************************/
 
   '*': true,
+  
   // 判斷某個 controller 是否可接受非會員造訪
   'UserController': {
     '*': 'isAuthenticated'
   },
 
   // 判斷 ItemsController 裡有哪些 actions 要顯示 category
-  'ItemsController': {
-    'show_item_list': 'dynamicCategory',
+  'ShopController': {
+    'index': 'dynamicCategory',
     'show_item': 'dynamicCategory'
   }
 

@@ -6,74 +6,6 @@
  */
 
 module.exports = {
-	show_new_in: function (req, res) { 
-		Items.find({ where: {available: true}, limit: 4, sort: 'id DESC' }).exec(function (err, new_items) {
-			if (err) { return res.serverError(err); }
-			for (var i = 0; i<new_items.length; i++){
-				new_items[i].item_img = new_items[i].item_img[0];
-			}
-		    return res.view('home/index', {
-		    	new_items: new_items,
-		    	scripts: [
-                	'/js/home.js'
-                ],
-                stylesheets: [
-                	'/styles/custom_home.css',
-                	'/styles/custom_shop_item.css'		// 主要效果: 圖片 hover
-                ]
-		    });
-		});
-	},
-	show_item_list: function (req, res) {
-		var id = req.params[0].split("+");
-			Category.find({id: id}).exec(function (err, items) {
-				
-				var id_arr = items[0].items;
-				if (items.length > 1){
-					for (var i = 1; i < items.length; i++){
-						id_arr = intersect(id_arr, items[i].items);
-					}
-				}
-
-				Items.find({ where: {id: id_arr, available: true}, sort: 'id DESC' }).exec(function (err, items) {
-					if (err) { return res.serverError(err); }
-					for(var i = 0; i < items.length; i++){
-						items[i].item_img = items[i].item_img[0];
-					}
-					return res.view('shop/index', {
-						items: items,
-						scripts: [
-		                ],
-		                stylesheets: [
-			                '/styles/custom_shop_item.css',		// 主要效果: 圖片 hover
-	                		'/styles/custom_shop.css'			// 主要效果: 讓圖片貼齊上方 menu
-		                ]
-					});
-				});
-			});
-	},
-	show_item: function (req, res) {
-		Items.find({id: req.params[0]}).exec(function (err, item) {
-			if (err) { return res.serverError(err); }
-			item = item[0];
-			if (item.available == true) {
-				item.item_img = item.item_img;
-				return res.view('shop/item_detail', {
-					item: item,
-					scripts: [
-		                '/js/shop.js'
-		            ],
-		            stylesheets: [
-                		'/styles/custom_shop.css'			// 主要效果: 讓圖片貼齊上方 menu
-		            ]
-				});
-			}else{
-				return res.send('This item is not available now!');
-			}
-			
-		});
-	},
-
     create: function (req, res) {
     	Items.create({
     		item_name: req.param('item_name'),
@@ -116,13 +48,3 @@ module.exports = {
     },
 
 };
-
-// 找兩陣列交集
-var intersect = function (a, b) {
-	var t;
-    if (b.length > a.length) t = b, b = a, a = t; // indexOf to loop over shorter
-    return a.filter(function (e) {
-        if (b.indexOf(e) !== -1) return true;
-    });
-
-}
