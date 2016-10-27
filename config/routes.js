@@ -43,7 +43,7 @@ module.exports.routes = {
 
   '/collections/details/*' : {
     controller: 'shop',
-    action: 'show_item'
+    action: 'show_detail'
   },
 
   // 'GET /': 'ItemsController.show_new_in',

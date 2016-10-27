@@ -33,8 +33,8 @@ module.exports = {
 			});
 		});
 	},
-	
-	show_item: function (req, res) {
+
+	show_detail: function (req, res) {
 		Items.find({id: req.params[0]}).exec(function (err, item) {
 			if (err) { return res.serverError(err); }
 			item = item[0];

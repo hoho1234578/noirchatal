@@ -36,7 +36,7 @@ module.exports.policies = {
   // 判斷 ItemsController 裡有哪些 actions 要顯示 category
   'ShopController': {
     'index': 'dynamicCategory',
-    'show_item': 'dynamicCategory'
+    'show_detail': 'dynamicCategory'
   }
 
   /***************************************************************************
