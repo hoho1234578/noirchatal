@@ -58,7 +58,7 @@ module.exports.routes = {
   // '/collections': {
   //   view: 'shop/index'
   // },
-
+  'POST /check_QTY': 'ShopController.check_QTY',
   'GET /login': 'AuthController.getLoginPage',
   'POST /login': 'AuthController.login',
   '/logout': 'AuthController.logout',

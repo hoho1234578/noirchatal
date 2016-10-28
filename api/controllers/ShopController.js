@@ -55,6 +55,17 @@ module.exports = {
 			
 		});
 	},
+
+	check_QTY: function (req, res) {
+		console.log(req.params);
+		Items.find({id: req.params[0]}).exec(function (err, item) {
+			if (err) { return res.serverError(err); }
+			console.log(item);
+			return res.send('Hi there!');
+
+			
+		});
+	},
 };
 
 // 找兩陣列交集

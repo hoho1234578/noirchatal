@@ -26,14 +26,14 @@
       </div>
     </div>
   </div>
-  <div id="item_detail_page" class="col-sm-4">
+  <div id="item_detail_page" value="<%= item.id %>" class="col-sm-4">
     <!--<div id="item_detail_category"><%= item.item_category %></div>-->
     <div id="item_detail_name"><%= item.item_name %></div>
     <div id="item_detail_price">NT$<%= item.price %></div>
     <div id="item_detail_description"><%= item.item_description %></div>
     <hr>
     
-    <div id="item_detail_quantity">數量
+    <div id="item_detail_quantity" value="<%= item.inventory_level %>">數量
       <div class="input-group">
         <span class="input-group-addon">−</span>
         <input type="text" class="form-control" value="1">
