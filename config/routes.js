@@ -68,6 +68,8 @@ module.exports.routes = {
   // 'GET /destroy': 'ItemsController.destroy',
   // 'GET /remove': 'ItemsController.remove'
 
+  'POST /addToCart': 'CartController.addToCart',
+
 
   /***************************************************************************
   *                                                                          *

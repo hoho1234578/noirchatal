@@ -3,7 +3,18 @@
 //    $(this).addClass("active");
 // });
 
-$(function() {
+// $(function() {
+$(document).ready(function(){
+
+  $(document).on("click","#item_add_to_bag",function(e){
+    $.post("/addToCart", { productNumber: this.value, amount: 5 }, function(res){
+      if(res.err) {
+        // showDialog("錯誤訊息",res.err);
+      } else {
+        console.log(res);
+      }
+    });
+  });
 
 	// 商品數量計數器
 	var timeout;
