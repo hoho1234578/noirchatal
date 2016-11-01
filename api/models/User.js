@@ -33,6 +33,10 @@ module.exports = {
         preference: { // 存取顧客收件地址、取貨超商位址等偏好資訊
         	type: 'json'
         },
+        cart: {
+            collection: 'cart',
+            via: 'customer'
+        },
         /** Most of the User.js is self explanatory, when we return our User object, 
         	the toJSON function will delete the password so it is not sent to the client. **/
         toJSON: function() {

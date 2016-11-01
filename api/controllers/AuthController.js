@@ -45,12 +45,15 @@ module.exports = {
             }
             // 登入成功後的動作
             req.logIn(user, function(err) {
-                if (err) res.send(err);
-                return res.send({
-                    message: info.message,
-                    user: user
-                });
-                //res.redirect('/collections')
+                if (err){ res.send(err); }
+                else{
+                    req.session.user = user;
+                    return res.send({
+                        message: info.message,
+                        user: user
+                    });
+                    //res.redirect('/collections')
+                }
             });
         })(req, res);
     },
