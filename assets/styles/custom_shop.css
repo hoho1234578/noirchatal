@@ -260,7 +260,8 @@
 
 #item_detail_page hr{
   margin-top: 10px;
-  margin-bottom: 10px
+  margin-bottom: 10px;
+  border-top: 1px dotted rgb(223, 221, 216);
 }
 
 #item_detail_quantity .input-group {
@@ -276,7 +277,6 @@
   border:none;
   color: #272727;
   background-color: transparent;
-  transition: all 0.3s ease 0s;
   font-weight: bold;
 }
 

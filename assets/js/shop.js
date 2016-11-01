@@ -4,7 +4,7 @@
 // });
 
 $(function() {
-
+	$(".hovereffect").addClass("in");
 	// 商品數量計數器
 	var timeout;
 	$("#item_detail_quantity span").first().on({

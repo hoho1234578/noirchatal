@@ -24,6 +24,7 @@ module.exports = {
 				return res.view({
 					items: items,
 					scripts: [
+						'/js/shop.js'
 		            ],
 		            stylesheets: [
 		                '/styles/custom_shop_item.css',		// 主要效果: 圖片 hover

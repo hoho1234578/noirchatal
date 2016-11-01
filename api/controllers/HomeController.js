@@ -18,7 +18,7 @@ module.exports = {
                 	'/js/home.js'
                 ],
                 stylesheets: [
-                	'/styles/custom_home.css',
+                	// '/styles/custom_home.css',
                 	'/styles/custom_shop_item.css'		// 主要效果: 圖片 hover
                 ]
 		    });
