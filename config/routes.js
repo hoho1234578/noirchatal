@@ -46,29 +46,29 @@ module.exports.routes = {
     action: 'show_detail'
   },
 
-  // 'GET /': 'ItemsController.show_new_in',
-  // 'GET /collections': 'ItemsController.show_item_list',
-  // 'GET /collections/tags/*': 'ItemsController.show_item_list',
-  // 'GET /collections/details/*': 'ItemsController.show_item',
-  
-  // '/': {
-  //   view: 'home/index'
-  // },
+  'GET /login': {
+    view: 'membership/index'
+  },
 
-  // '/collections': {
-  //   view: 'shop/index'
-  // },
-  'POST /check_QTY/': 'ShopController.check_QTY',
-  'GET /login': 'AuthController.getLoginPage',
-  'POST /login': 'AuthController.login',
-  '/logout': 'AuthController.logout',
+  'POST /login': {
+    controller: 'auth',
+    action: 'login'
+  },
 
+  '/logout': {
+    controller: 'auth',
+    action: 'logout'
+  },
 
-  'POST /create': 'ItemsController.create',
-  // 'GET /destroy': 'ItemsController.destroy',
-  // 'GET /remove': 'ItemsController.remove'
+  'POST /check_QTY/': {
+    controller: 'shop',
+    action: 'check_QTY'
+  },
 
-  'POST /addToCart': 'CartController.addToCart',
+  'POST /addToCart': {
+    controller: 'cart',
+    action: 'addToCart'
+  },
 
 
   /***************************************************************************

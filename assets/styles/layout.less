@@ -6,13 +6,13 @@
  */
 
 html, body {
-	background-color: rgb(244, 244, 242);
+	background-color: @color-background;
 }
 
 
 /***** Navbar *****/
 #home_page_navbar {
-	background-color: rgba(244, 244, 242, 0.7);
+	background-color: fade(@color-background, 80%);
 	padding: 10px 30px 10px 30px;
 	border-color: transparent;
 	font-family: 'Open Sans Condensed', sans-serif;
@@ -29,12 +29,12 @@ html, body {
 		>li{
 			margin: 0px 10px;
 			a:hover, a:focus{
-				color: rgb(180, 140, 80);
+				color: @color-font-em;
 			}
 		}
 		.active, .open{
 			a, a:hover, a:focus{
-				color: rgb(180, 140, 80);
+				color: @color-font-em;
     			background-color: transparent;
 			}
 		}
@@ -48,7 +48,7 @@ html, body {
     -moz-transition: all ease .5s;
     -o-transition: all ease .5s;
     transition: all ease .5s;
-    color: #272727;
+    color: @color-font;
 }
 
 @media (max-width: 978px) {
@@ -58,7 +58,6 @@ html, body {
 	#home_page_navbar {
 		font-size: 14px;
 		padding:0px;
-		background-color: rgba(244, 244, 242, 0.7);
 		margin: 0px;
 		
 		.navbar-brand{

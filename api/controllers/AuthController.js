@@ -26,14 +26,6 @@ module.exports = {
 	//     });
 	// },
 
-    getLoginPage: function(req, res) {
-        return res.view('membership/login', {
-            stylesheets: [
-                '/styles/membership.css'
-            ]
-        });
-    },
-
     login: function(req, res) {
 
         passport.authenticate('local', function(err, user, info) {
@@ -52,7 +44,6 @@ module.exports = {
                         message: info.message,
                         user: user
                     });
-                    //res.redirect('/collections')
                 }
             });
         })(req, res);

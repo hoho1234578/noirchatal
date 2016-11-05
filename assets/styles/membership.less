@@ -1,0 +1,77 @@
+/**
+ * membership.less
+ *
+ * @description :: With this stylesheet, we changed the look of the login page (view/membership/index.ejs).
+ * 
+ */
+
+#login_page {
+  width:400px;
+  margin-top: 25vh;
+  padding:20px 30px 35px 30px;
+  background-color: rgba(209, 187, 151, 0.3);
+  border-radius: 3px;
+  margin-bottom: 25vh;
+  color: @color-font;
+
+  h1 {
+    padding-bottom: 30px;
+    text-align: center;
+    font-family: 'Open Sans Condensed', sans-serif;
+    letter-spacing: 4px;
+  }
+
+  input {
+    background-color: transparent;
+    border: 1px solid @color-font;
+    border-radius: 0px 2px 2px 0px;
+  }
+
+  input:focus {
+    box-shadow: none;
+  }
+
+  .input-group-addon {
+    background-color: transparent;
+    border: 1px solid @color-font;
+    border-right:none;
+    border-radius: 2px 0px 0px 2px;
+    color: @color-font;
+  }
+
+  .glyphicon {
+    position: static;
+  }
+
+  button {
+    background-color: transparent;
+    border: 1px solid @color-font;
+    border-radius: 2px;
+    float: right;
+    padding: 5px 12px;
+    transition: all 0.5s ease 0s;
+    color: @color-font;
+  }
+
+  button:hover {
+    background-color: @color-font;
+    color: @color-background;
+  }
+}
+
+
+@media (min-width: 375px){
+  @media (max-width: 399px) {
+    #login_page {
+      width:320px;
+      padding: 0px 20px 20px 20px;
+    }
+  }
+}
+
+@media (max-width: 374px) {
+  #login_page {
+    width:300px;
+    padding: 0px 10px 20px 10px;
+  }
+}
