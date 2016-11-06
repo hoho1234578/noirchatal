@@ -28,7 +28,6 @@ module.exports = {
 		            ],
 		            stylesheets: [
 		                '/styles/custom_shop_item.css',		// 主要效果: 圖片 hover
-	            		'/styles/custom_shop.css'			// 主要效果: 讓圖片貼齊上方 menu
 	            ]
 				});
 			});
