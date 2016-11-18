@@ -122,3 +122,71 @@
   .home_page_section {
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+// cart modal 相關
+.deck-container {
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  z-index: 1050;
+
+  visibility: visible;
+}
+.deck-container.collapsed {
+  visibility: hidden;
+}
+
+@boxSize: 150px;
+.itemGrid {
+  width: 25%; height: @boxSize;
+  float:left;
+  transition: all 0.5s ease-in-out;
+  position: relative;
+  transform-origin: top right; 
+
+  visibility: visible;
+}
+div.deck-container.collapsed .itemGrid {
+  visibility: hidden;
+}
+
+.modalToggle {
+  position: relative;
+  float:right;
+  width:25%;
+  height:150px;
+
+  font-size: 5.3vw;
+  text-align: center;
+
+  transform-origin: top right; 
+  transition: all 0.5s ease-in-out;
+
+  visibility: visible;
+}
+.deck-container.collapsed .modalToggle {
+  visibility: hidden;
+}
+.modalToggle .toggleContent {
+  // 置中設定
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+}
