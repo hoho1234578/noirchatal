@@ -98,7 +98,14 @@
       <span class="glyphicon glyphicon-search" aria-hidden="true"></span>   CART
     </div>
   </div>
-  <div class="itemGrid d1">
+
+  <% for(var i=0; i<cart.length; i++) {%>
+    <div class='itemGrid d<%=i+1%>'>
+      <span>Facts<%=i+1%> <%=JSON.stringify(cart[i])%></span>
+    </div>
+  <% } %>
+
+  <!-- <div class="itemGrid d1">
     <span>Facts</span>
   </div>
   <div class="itemGrid d2">
@@ -118,5 +125,5 @@
   </div>
   <div class="itemGrid d8">
     <span>Facts</span>
-  </div>
+  </div> -->
 </div>

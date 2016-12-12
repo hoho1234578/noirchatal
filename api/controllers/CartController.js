@@ -14,6 +14,7 @@ module.exports = {
 
 		if(typeof req.session.user === "undefined"){
 			console.log("請先登入或註冊會員！");
+			res.send("請先登入或註冊會員！");
 		}else{
 			Cart.findOne({ customer: req.session.user.id, productNumber: productNumber }).exec(function(err, cart){
 				if (err) { return res.serverError(err); }

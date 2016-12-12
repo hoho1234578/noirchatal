@@ -12,16 +12,38 @@ module.exports = {
 			for (var i = 0; i<new_items.length; i++){
 				new_items[i].item_img = new_items[i].item_img[0];
 			}
-		    return res.view({
-		    	new_items: new_items,
-		    	scripts: [
-                	'/js/home.js'
-                ],
-                stylesheets: [
-                	// '/styles/custom_home.css',
-                	// '/styles/custom_shop_item.css'		// 主要效果: 圖片 hover
-                ]
-		    });
+
+			if(typeof req.session.user == "undefined"){
+				return res.view({
+			    	new_items: new_items,
+			    	scripts: [
+	                	'/js/home.js'
+	                ],
+	                stylesheets: [
+	                	// '/styles/custom_home.css',
+	                	// '/styles/custom_shop_item.css'		// 主要效果: 圖片 hover
+	                ],
+	                cart: []
+			    });
+			}else{
+				User.find({id: req.session.user.id}).populate('cart').exec(function(err2, currentUser){
+					if (err2) { return res.serverError(err2); }
+
+					console.log(currentUser[0]);
+				
+				    return res.view({
+				    	new_items: new_items,
+				    	scripts: [
+		                	'/js/home.js'
+		                ],
+		                stylesheets: [
+		                	// '/styles/custom_home.css',
+		                	// '/styles/custom_shop_item.css'		// 主要效果: 圖片 hover
+		                ],
+		                cart: currentUser[0].cart
+				    });
+				});
+			}
 		});
 	},
 };
