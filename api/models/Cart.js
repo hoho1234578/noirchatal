@@ -7,9 +7,13 @@
 
 module.exports = {
   	attributes: {
-  		productNumber: {
-  			type: 'string'
-  		},
+      productNumber: {
+        model: 'items',
+        required: true
+      },
+  		// productNumber: {
+  		// 	type: 'string'
+  		// },
   		amount: {
   			type: 'integer'
   		},
