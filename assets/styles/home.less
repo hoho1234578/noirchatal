@@ -153,11 +153,12 @@
 
 @boxSize: 150px;
 .itemGrid {
-  width: 25%; height: @boxSize;
-  float:right;
-  transition: all 0.5s ease-in-out;
   position: relative;
+  float:right;
+  width: 25%; height: @boxSize;
+  
   transform-origin: top right; 
+  transition: all 0.5s ease-in-out;
 
   visibility: visible;
 }
@@ -168,8 +169,7 @@ div.deck-container.collapsed .itemGrid {
 .modalToggle {
   position: relative;
   float:right;
-  width:25%;
-  height:150px;
+  width:25%; height:150px;
 
   font-size: 5.3vw;
   text-align: center;

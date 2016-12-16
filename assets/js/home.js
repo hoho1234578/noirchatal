@@ -39,8 +39,14 @@ $(document).ready(function(){
   // });
 
   var maxIndex = $('div.deck-container .itemGrid').length+2;
-  var scaleX = $('.liCart').width()/$('.itemGrid').width();
-  var scaleY = $('.liCart').outerHeight()/$('.itemGrid').height();
+  if($(window).width()>978){
+    var scaleX = ($('.liCart').width()+90)/$('.itemGrid').width();
+    var scaleY = 70/$('.itemGrid').height();
+  }else{
+    var scaleX = $('.liCart').width()/$('.itemGrid').width();
+    var scaleY = $('.liCart').outerHeight()/$('.itemGrid').height();
+  }
+
   for (index = 1; index < maxIndex; index++) { 
     var row = Math.ceil(index/4);
     var column = index%4;

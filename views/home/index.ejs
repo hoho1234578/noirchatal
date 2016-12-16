@@ -101,7 +101,18 @@
 
   <% for(var i=0; i<cart.length; i++) {%>
     <div class='itemGrid d<%=i+2%>'>
-      <span>Facts<%=i+2%> <%=JSON.stringify(cart[i])%></span>
+      <!-- <span>Facts<%=i+2%> <%=JSON.stringify(cart[i].productNumber)%></span> -->
+
+      <div class="hovereffect11">
+        <img class="img-responsive" src="/images/collections/<%= cart[i].item_img[0] %>">
+        <!-- <div class="overlay">
+          <a class="info" href="/collections/details/<%= cart[i].productNumber %>">
+            <p class="item_name"><%= cart[i].item_name %></p>
+            <p class="item_price">NT$<%= cart[i].price %></p>
+          </a>
+        </div> -->
+      </div>
+
     </div>
   <% } %>
 
