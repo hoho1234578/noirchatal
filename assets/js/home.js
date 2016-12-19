@@ -78,4 +78,34 @@ $(document).ready(function(){
         }
       );
   });
+
+
+
+
+  $('#close').click(function(e) {
+    e.preventDefault();
+
+    console.log(this.value);
+
+    console.log($(this).attr('value'));
+
+    // $.post("/throwFromCart", { productNumber: $(this).attr('value'), amount: 0 }, function(res){
+    //   if(res.err) {
+    //     // showDialog("錯誤訊息",res.err);
+    //   } else {
+    //     console.log(res);
+    //   }
+    // });
+
+    $.ajax({
+      method: "POST",
+      url: "/throwFromCart",
+      // processData: false,
+      contentType: 'html',
+      data: '{ productNumber: this.value, amount: 5 }',
+      success: function(data,status,xhr){xhr.getResponseHeader("myHeader");}
+    });
+
+
+  });
 });

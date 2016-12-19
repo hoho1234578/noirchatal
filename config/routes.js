@@ -70,6 +70,11 @@ module.exports.routes = {
     action: 'addToCart'
   },
 
+  'POST /throwFromCart': {
+    controller: 'cart',
+    action: 'throwFromCart'
+  },
+
 
   /***************************************************************************
   *                                                                          *
