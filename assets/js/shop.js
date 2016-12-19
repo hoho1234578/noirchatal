@@ -3,7 +3,30 @@
 //    $(this).addClass("active");
 // });
 
+var page_num = 1;
+
+$(window).endlessScroll({
+  fireOnce: false,
+  fireDelay: false,
+  inflowPixels: 300,
+  // loader: '<div class="loading"><div>',
+  callback: function(p){
+    console.log("test");
+    page_num++;
+    // $("#item_list_page").load('./item.ejs');
+    // $.get("/nextPage", function(res){
+    //   if(res.err) {
+
+    //   } else {
+    //     console.log(res);
+    //   }
+    // });
+  }
+});
+
 $(function() {
+  
+
 	$(".hovereffect").addClass("in");
 
   $(document).on("click","#item_add_to_bag",function(e){
