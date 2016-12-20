@@ -39,8 +39,6 @@ module.exports = {
 		var productNumber = req.param("productNumber");
 		var amount = parseInt(req.param("amount"));
 
-		console.log(productNumber);
-
 		if(typeof req.session.user === "undefined"){
 			console.log("請先登入或註冊會員！");
 			res.send("請先登入或註冊會員！");
