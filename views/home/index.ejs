@@ -102,7 +102,25 @@
   <% for(var i=0; i<cart.length; i++) {%>
     <div class='itemGrid d<%=i+2%>'>
 
-      <div class="hovereffect">
+      <div class='imgArea'>
+        <div class='overlay'>
+          <!-- 561456156156156156156156561565656456456415615615615615615615615615615612512121211515156564156846854165 -->
+          <img class="img-responsive" src="/images/collections/<%= cart[i].item_img[0] %>">
+        </div>
+        
+      </div>
+      <div class='priceArea'>
+      </div>
+      <div class='close'>
+        <span class='glyphicon glyphicon-remove' id='close' value='<%= cart[i].productNumber %>'></span>
+      </div>
+      <div class='res'>
+      </div>
+      <div class='totalPriceArea'>
+      </div>
+
+
+      <!-- <div class="hovereffect">
         <img class="img-responsive" src="/images/collections/<%= cart[i].item_img[0] %>">
         <div class="overlay">
           <a class="info" href="/collections/details/<%= cart[i].productNumber %>">
@@ -111,7 +129,7 @@
             <p class="item_price">NT$<%= cart[i].price %></p>
           </a>
         </div>
-      </div>
+      </div> -->
 
     </div>
   <% } %>

@@ -155,7 +155,7 @@
 .itemGrid {
   position: relative;
   float:right;
-  width: 25%; height: @boxSize;
+  width: 25%;
   
   transform-origin: top right; 
   transition: all 0.5s ease-in-out;
@@ -169,7 +169,9 @@ div.deck-container.collapsed .itemGrid {
 .modalToggle {
   position: relative;
   float:right;
-  width:25%; height:150px;
+  width:25%;
+
+  padding-top:15.45%;
 
   font-size: 5.3vw;
   text-align: center;
@@ -192,17 +194,74 @@ div.deck-container.collapsed .itemGrid {
 }
 
 // center oversized image in div
-.itemGrid img {
-   position: absolute;
-   top: -9999px;
-    bottom: -9999px;
-    left: -9999px;
-    right: -9999px;
+.overlay img {
+   // position: absolute;
+   // top: -9999px;
+   //  bottom: -9999px;
+   //  left: -9999px;
+   //  right: -9999px;
+   //  margin: auto;
+  position:absolute;
+    left: -100%;
+    right: -100%;
+    top: -100%;
+    bottom: -100%;
     margin: auto;
+    min-height: 100%;
+    min-width: 100%;
 }
 
 #close {
     position:absolute; top:5px; right:5px;
     color: white;
     
+}
+
+
+
+
+
+
+
+.imgArea {
+  position: relative;
+  float: left;
+  width:61.8%;
+  padding-top:61.8%;
+  background-color:black;
+}
+.priceArea {
+  float: left;
+  width: 23.6076%;  // 38.2*0.618
+  padding-top:23.6076%;
+  background-color:red;
+}
+.close {
+  float: left;
+  width: 14.5924%;  // 38.2*0.382
+  padding-top:14.5924%;
+  background-color:gray;
+}
+.res {
+  float: left;
+  width: 14.5924%;
+  padding-top:9.0181032%; // 23.6076*0.382
+  background-color:orange;
+}
+.totalPriceArea {
+  float: left;
+  width: 38.2%;
+  padding-top:38.2%;
+  background-color:blue;
+}
+
+
+
+
+.overlay {
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  right: 0;  bottom: 0;
+  left: 0;
 }
