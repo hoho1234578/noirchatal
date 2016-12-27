@@ -194,34 +194,29 @@ div.deck-container.collapsed .itemGrid {
 }
 
 // center oversized image in div
-.overlay img {
-   // position: absolute;
-   // top: -9999px;
-   //  bottom: -9999px;
-   //  left: -9999px;
-   //  right: -9999px;
-   //  margin: auto;
-  position:absolute;
-    left: -100%;
-    right: -100%;
-    top: -100%;
-    bottom: -100%;
-    margin: auto;
-    min-height: 100%;
-    min-width: 100%;
+// .overlay img {
+//   position: absolute;
+//   top: -9999px;
+//   bottom: -9999px;
+//   left: -9999px;
+//   right: -9999px;
+//   margin: auto;
+// }
+
+
+
+
+.overlay {
+  overflow: hidden;
+  position: absolute;
+  top: 0; right: 0;  bottom: 0; left: 0;
 }
-
-#close {
-    position:absolute; top:5px; right:5px;
-    color: white;
-    
+.centerDiv {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
-
-
-
-
-
-
 
 .imgArea {
   position: relative;
@@ -231,37 +226,46 @@ div.deck-container.collapsed .itemGrid {
   background-color:black;
 }
 .priceArea {
+  position: relative;
   float: left;
   width: 23.6076%;  // 38.2*0.618
   padding-top:23.6076%;
-  background-color:red;
+
+  // box-shadow:inset 0px 0px 0px 1px black;
+  border-color: black;
+  border-style: solid;
+  border-width: 1px 1px 0px 1px;
 }
 .close {
+  position: relative;
   float: left;
   width: 14.5924%;  // 38.2*0.382
   padding-top:14.5924%;
-  background-color:gray;
+}
+#close {
+  color: black;
+
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 .res {
+  position: relative;
   float: left;
   width: 14.5924%;
   padding-top:9.0181032%; // 23.6076*0.382
   background-color:orange;
 }
 .totalPriceArea {
+  position: relative;
   float: left;
   width: 38.2%;
   padding-top:38.2%;
-  background-color:blue;
+
+  // box-shadow:inset 0px 0px 0px 1px black;
+  border-color: black;
+  border-style: solid;
+  border-width: 1px 1px 1px 1px;
 }
 
-
-
-
-.overlay {
-  overflow: hidden;
-  position: absolute;
-  top: 0;
-  right: 0;  bottom: 0;
-  left: 0;
-}

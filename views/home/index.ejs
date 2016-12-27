@@ -103,20 +103,29 @@
     <div class='itemGrid d<%=i+2%>'>
 
       <div class='imgArea'>
-        <div class='overlay'>
-          <!-- 561456156156156156156156561565656456456415615615615615615615615615615612512121211515156564156846854165 -->
-          <img class="img-responsive" src="/images/collections/<%= cart[i].item_img[0] %>">
+        <div class='overlay' style="background-image:url(/images/collections/<%= cart[i].item_img[0] %>); background-size: cover; background-position: 50%">
         </div>
-        
       </div>
       <div class='priceArea'>
+        <div class='overlay'>
+          <div class='centerDiv' style='font-size: 2vw;'>
+            $150
+          </div>
+        </div>
       </div>
       <div class='close'>
-        <span class='glyphicon glyphicon-remove' id='close' value='<%= cart[i].productNumber %>'></span>
+        <div class='overlay'>
+          <span class='glyphicon glyphicon-remove' id='close' value='<%= cart[i].productNumber %>'></span>
+        </div>
       </div>
       <div class='res'>
       </div>
       <div class='totalPriceArea'>
+        <div class='overlay'>
+          <div class='centerDiv' style='font-size: 3.8vw;'>
+            $750
+          </div>
+        </div>
       </div>
 
 
