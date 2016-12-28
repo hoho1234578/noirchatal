@@ -99,14 +99,62 @@
     </div>
   </div>
 
+
   <% for(var i=0; i<cart.length; i++) {%>
     <div class='itemGrid d<%=i+2%>'>
+
+      <div class='titleArea'>
+        <div class='overlay'>
+          <div class='centerDiv' style='font-size: 2vw;'>
+            <%= cart[i].item_name %>
+          </div>
+        </div>
+      </div>
+
+      <div class='closeArea'>
+        <div class='overlay'>
+          <span class='glyphicon glyphicon-remove' id='close' value='<%= cart[i].productNumber %>'></span>
+        </div>
+      </div>
 
       <div class='imgArea'>
         <div class='overlay' style="background-image:url(/images/collections/<%= cart[i].item_img[0] %>); background-size: cover; background-position: 50%">
         </div>
       </div>
+
       <div class='priceArea'>
+        <div class='overlay'>
+          <div class='unitPriceArea'>
+            <div class='centerDiv'>
+              $150
+            </div>
+          </div>
+          <div class='operatorArea'>
+            <div class='centerDiv'>
+              ×
+            </div>
+          </div>
+          <div class='quantityArea'>
+            <div class='centerDiv'>
+              <%= cart[i].amount %>
+            </div>
+          </div>
+          <div class='operatorArea'>
+            <div class='centerDiv'>
+              =
+            </div>
+          </div>
+          <div class='totalPriceArea'>
+            <div class='centerDiv'>
+              $750
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <!-- <div class='priceArea'>
         <div class='overlay'>
           <div class='centerDiv' style='font-size: 2vw;'>
             $150
@@ -131,42 +179,11 @@
             $750
           </div>
         </div>
-      </div>
-
-
-      <!-- <div class="hovereffect">
-        <img class="img-responsive" src="/images/collections/<%= cart[i].item_img[0] %>">
-        <div class="overlay">
-          <a class="info" href="/collections/details/<%= cart[i].productNumber %>">
-            <span class='glyphicon glyphicon-remove' id='close' value='<%= cart[i].productNumber %>'></span>
-            <p class="item_name"><%= cart[i].item_name %></p>
-            <p class="item_price">NT$<%= cart[i].price %></p>
-          </a>
-        </div>
       </div> -->
+
 
     </div>
   <% } %>
 
-  <!-- <div class="itemGrid d1">
-    <span>Facts</span>
-  </div>
-  <div class="itemGrid d2">
-    <span>Facts</span>
-  </div>
-  <div class="itemGrid d3">
-    <span>Facts</span>
-  </div>
-  <div class="itemGrid d5">
-    <span>Facts</span>
-  </div>
-  <div class="itemGrid d6">
-    <span>Facts</span>
-  </div>
-  <div class="itemGrid d7">
-    <span>Facts</span>
-  </div>
-  <div class="itemGrid d8">
-    <span>Facts</span>
-  </div> -->
+
 </div>
