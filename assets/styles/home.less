@@ -210,14 +210,24 @@ div.deck-container.collapsed .itemGrid {
 
 
 
-
+.overlay {
+  overflow: hidden;
+  position: absolute;
+  top: 0; right: 0;  bottom: 0; left: 0;
+}
+.centerDiv {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+}
 
 .titleArea {
   position: relative;
   float: left;
   width:80.9%;
   padding-top:38.2%;
-  // background-color:black;
 }
 .closeArea {
   position: relative;
@@ -225,7 +235,7 @@ div.deck-container.collapsed .itemGrid {
   width:19.1%;
   padding-top:19.1%;
 }
-#close {
+.closeToggle {
   color: black;
   font-size: 2.5vw;
 
@@ -246,7 +256,7 @@ div.deck-container.collapsed .itemGrid {
   width:38.2%;
   padding-top:61.8%;
 
-  .unitPriceArea, .totalPriceArea, .quantityArea {
+  .operandArea {
     position: relative;
     float: left;
     width:100%;
@@ -262,87 +272,4 @@ div.deck-container.collapsed .itemGrid {
   }
 }
 
-
-
-
-.overlay {
-  overflow: hidden;
-  position: absolute;
-  top: 0; right: 0;  bottom: 0; left: 0;
-}
-.centerDiv {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  // display: inline-block;
-  white-space: nowrap;
-}
-
-// .imgArea {
-//   position: relative;
-//   float: left;
-//   width:61.8%;
-//   padding-top:61.8%;
-// }
-// .priceArea {
-//   position: relative;
-//   float: left;
-//   width: 23.6076%;  // 38.2*0.618
-//   padding-top:23.6076%;
-
-//   .overlay{
-//     box-sizing: border-box;
-//     border-color: black;
-//     border-style: solid;
-//     border-width: 1px 0px 0px 1px;
-//   }
-// }
-// .close2 {
-//   position: relative;
-//   float: left;
-//   width: 14.5924%;  // 38.2*0.382
-//   padding-top:14.5924%;
-
-//   .overlay{
-//     box-sizing: border-box;
-//     border-color: black;
-//     border-style: solid;
-//     border-width: 0px 0px 0px 1px;
-//   }
-// }
-// #close {
-//   color: black;
-
-//   position: absolute;
-//   left: 50%;
-//   top: 50%;
-//   transform: translate(-50%, -50%);
-// }
-// .res {
-//   position: relative;
-//   float: left;
-//   width: 14.5924%;
-//   padding-top:9.0181032%; // 23.6076*0.382
-
-//   .overlay{
-//     box-sizing: border-box;
-//     border-color: black;
-//     border-style: solid;
-//     border-width: 1px 1px 0px 0px;
-//   }
-// }
-// .totalPriceArea {
-//   position: relative;
-//   float: left;
-//   width: 38.2%;
-//   padding-top:38.2%;
-
-//   .overlay{
-//     box-sizing: border-box;
-//     border-color: black;
-//     border-style: solid;
-//     border-width: 1px 1px 1px 1px;
-//   }
-// }
 

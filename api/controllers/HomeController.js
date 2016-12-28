@@ -40,7 +40,11 @@ module.exports = {
 					currentUser.cart = _.map(currentUser.cart, function(cart) {
 						cart.item_img = ItemImgs[cart.productNumber].item_img;
 						cart.item_name = ItemImgs[cart.productNumber].item_name;
-						cart.price = ItemImgs[cart.productNumber].price;
+						if(!ItemImgs[cart.productNumber].special_price){
+							cart.price = ItemImgs[cart.productNumber].price;
+						}else{
+							cart.price = ItemImgs[cart.productNumber].special_price;
+						}
 						return cart;
 					});
 					// res.json(currentUser);

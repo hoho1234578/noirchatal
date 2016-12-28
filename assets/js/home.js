@@ -67,7 +67,7 @@ $(document).ready(function(){
   }
 
   $(function() {
-      $('.liCart, .itemGrid:nth-child(4)').click(
+      $('.liCart').click(
         function () {
             $('div.deck-container').toggleClass('collapsed');
         }
@@ -83,29 +83,26 @@ $(document).ready(function(){
 
 
 
-  $('#close').click(function(e) {
-    e.preventDefault();
+  $(".closeToggle").on("click", function() {
+    // e.preventDefault();
 
+    $(this).parent().parent().parent().remove();
 
-    console.log($(this).parent().parent().parent().parent());
-    $(this).parent().parent().parent().parent().remove();
-
-    // $.ajax({
-    //   method: "POST",
-    //   url: "/throwFromCart",
-    //   // processData: false,
-    //   // contentType: 'html',
-    //   data: { productNumber: $(this).attr('value'), amount: 5 }
-    // })
-    // .done(function(data,status,xhr){
-    //   xhr.getResponseHeader("myHeader");
-    //   console.log("done");
-    //   $(this).parent().parent().parent().parent().remove();
-    // })
-    // .fail(function(){
-    //   console.log("fail");
-    // });
-
+    $.ajax({
+      method: "POST",
+      url: "/throwFromCart",
+      // processData: false,
+      // contentType: 'html',
+      data: { productNumber: $(this).attr('value'), amount: 5 }
+    })
+    .done(function(data,status,xhr){
+      xhr.getResponseHeader("myHeader");
+      console.log("done");
+      $(this).parent().parent().parent().parent().remove();
+    })
+    .fail(function(){
+      console.log("fail");
+    });
 
   });
 });

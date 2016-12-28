@@ -113,7 +113,7 @@
 
       <div class='closeArea'>
         <div class='overlay'>
-          <span class='glyphicon glyphicon-remove' id='close' value='<%= cart[i].productNumber %>'></span>
+          <span class='glyphicon glyphicon-remove closeToggle' value='<%= cart[i].productNumber %>'></span>
         </div>
       </div>
 
@@ -124,9 +124,9 @@
 
       <div class='priceArea'>
         <div class='overlay'>
-          <div class='unitPriceArea'>
+          <div class='operandArea'>
             <div class='centerDiv'>
-              $150
+              $<%= cart[i].price %>
             </div>
           </div>
           <div class='operatorArea'>
@@ -134,7 +134,7 @@
               ×
             </div>
           </div>
-          <div class='quantityArea'>
+          <div class='operandArea'>
             <div class='centerDiv'>
               <%= cart[i].amount %>
             </div>
@@ -144,44 +144,13 @@
               =
             </div>
           </div>
-          <div class='totalPriceArea'>
+          <div class='operandArea'>
             <div class='centerDiv'>
-              $750
+              $<%= cart[i].price*cart[i].amount %>
             </div>
           </div>
         </div>
       </div>
-
-
-
-      <!-- <div class='priceArea'>
-        <div class='overlay'>
-          <div class='centerDiv' style='font-size: 2vw;'>
-            $150
-          </div>
-        </div>
-      </div>
-      <div class='close2'>
-        <div class='overlay'>
-          <span class='glyphicon glyphicon-remove' id='close' value='<%= cart[i].productNumber %>'></span>
-        </div>
-      </div>
-      <div class='res'>
-        <div class='overlay'>
-          <div class='centerDiv' style='font-size: 1.2vw;'>
-            /each
-          </div>
-        </div>
-      </div>
-      <div class='totalPriceArea'>
-        <div class='overlay'>
-          <div class='centerDiv' style='font-size: 3.8vw;'>
-            $750
-          </div>
-        </div>
-      </div> -->
-
-
     </div>
   <% } %>
 
