@@ -87,6 +87,81 @@
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
+
+
+
+    <!-- cart modal -->
+    <div class="deck-container collapsed">
+      <div class="modalToggle">
+        <div class="toggleContent">
+          <span class="glyphicon glyphicon-search" aria-hidden="true"></span>   CART
+        </div>
+      </div>
+
+
+      <% for(var i=0; i<cart.length; i++) {%>
+        <div class='itemGrid d<%=i+2%>'>
+
+          <div class='titleArea'>
+            <div class='overlay'>
+              <div class='centerDiv' style='font-size: 2.5vw;'>
+                <%= cart[i].item_name %>
+              </div>
+            </div>
+          </div>
+
+          <div class='closeArea'>
+            <div class='overlay'>
+              <span class='glyphicon glyphicon-remove closeToggle' value='<%= cart[i].productNumber %>'></span>
+            </div>
+          </div>
+
+          <div class='imgArea'>
+            <div class='overlay' style="background-image:url(/images/collections/<%= cart[i].item_img[0] %>); background-size: cover; background-position: 50%">
+            </div>
+          </div>
+
+          <div class='priceArea'>
+            <div class='overlay'>
+              <div class='operandArea'>
+                <div class='centerDiv'>
+                  $<%= cart[i].price %>
+                </div>
+              </div>
+              <div class='operatorArea'>
+                <div class='centerDiv'>
+                  ×
+                </div>
+              </div>
+              <div class='operandArea'>
+                <div class='centerDiv'>
+                  <%= cart[i].amount %>
+                </div>
+              </div>
+              <div class='operatorArea'>
+                <div class='centerDiv'>
+                  =
+                </div>
+              </div>
+              <div class='operandArea'>
+                <div class='centerDiv'>
+                  $<%= cart[i].price*cart[i].amount %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% } %>
+
+
+    </div>
+
+
+
+
+
+
+    
     
     <%- body %>
 
