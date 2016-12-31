@@ -37,7 +37,11 @@ module.exports.policies = {
   'ShopController': {
     'index': 'dynamicCategory',
     'show_detail': 'dynamicCategory'
-  }
+  },
+
+  'HomeController': {
+    'index': 'dynamicNavBar'
+  },
 
   /***************************************************************************
   *                                                                          *
