@@ -7,16 +7,8 @@
 
 module.exports = {
 	index: function (req, res) {
-		var id = req.params[0].split("+");
-		Category.find({id: id}).exec(function (err, items) {			
-			var id_arr = items[0].items;
-			if (items.length > 1){
-				for (var i = 1; i < items.length; i++){
-					id_arr = intersect(id_arr, items[i].items);
-				}
-			}
-
-			Items.find({ where: {id: id_arr, available: true}, sort: 'id DESC' }).exec(function (err, items) {
+		if (req.params[0] == "all"){
+			Items.find({sort: 'id DESC' }).exec(function (err, items) {
 				if (err) { return res.serverError(err); }
 				for(var i = 0; i < items.length; i++){
 					items[i].item_img = items[i].item_img[0];
@@ -25,10 +17,34 @@ module.exports = {
 					items: items,
 					scripts: [
 						'/js/shop.js'
-		            ]
+			        ]
 				});
 			});
-		});
+		}else {
+			var id = req.params[0].split("+");
+			Category.find({id: id}).exec(function (err, items) {			
+				var id_arr = items[0].items;
+				if (items.length > 1){
+					for (var i = 1; i < items.length; i++){
+						id_arr = intersect(id_arr, items[i].items);
+					}
+				}
+
+				Items.find({ where: {id: id_arr, available: true}, sort: 'id DESC' }).exec(function (err, items) {
+					if (err) { return res.serverError(err); }
+					for(var i = 0; i < items.length; i++){
+						items[i].item_img = items[i].item_img[0];
+					}
+					return res.view({
+						items: items,
+						scripts: [
+							'/js/shop.js'
+			            ]
+					});
+				});
+			});
+		}
+		
 	},
 
 	show_detail: function (req, res) {

@@ -7,24 +7,28 @@
 
 module.exports = {
     create: function (req, res) {
-    	// Items.create({
-    	// 	item_name: req.param('item_name'),
-    	// 	item_description: req.param('item_description'),
-    	// 	price: req.param('price'),
-    	// 	special_price: req.param('special_price'),
-    	// 	inventory_level: req.param('inventory_level'),
-    	// 	item_img: req.param('item_img'),
-    	// 	available: req.param('available')
+    	Items.create({
+    		item_name: req.param('item_name'),
+    		item_description: req.param('item_description'),
+    		price: req.param('price'),
+    		special_price: req.param('special_price'),
+    		inventory_level: req.param('inventory_level'),
+    		item_img: req.param('item_img'),
+    		available: req.param('available')
     	
     	// Category.create({
     	// 	category_name: req.param('category_name'),
     	// 	items: req.param('items')
 
-    	Category_association.create({
-    		parents_id: req.param('parents_id'),
-            parents_name: req.param('parents_name'),
-    		child_id: req.param('child_id'),
-            child_name: req.param('child_name'),
+    	// Category_association.create({
+    	// 	parents_id: req.param('parents_id'),
+     //        parents_name: req.param('parents_name'),
+    	// 	child_id: req.param('child_id'),
+     //        child_name: req.param('child_name'),
+
+
+     //     Items.destroy({
+     //         id: req.param('id')
     	}).exec(function (err, newUser){
     		if (err) { return res.serverError(err); }
     		else { return res.ok(newUser); }
