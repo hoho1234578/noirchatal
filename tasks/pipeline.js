@@ -34,6 +34,8 @@ var jsFilesToInject = [
   // jquery has to be loaded before bootstrap.
   'js/vendor/jquery-3.1.1.js',
 
+  'js/public/layout.js',
+
   // All of the rest of your client-side js files
   // will be injected here in no particular order.
   // 'js/**/*.js'
