@@ -1,16 +1,16 @@
 // 以下控制 cart modal
 $(document).ready(function(){
   var style = (function() {
-      // Create the <style> tag
-      var style = document.createElement("style");
+    // Create the <style> tag
+    var style = document.createElement("style");
 
-      // WebKit hack
-      style.appendChild(document.createTextNode(""));
+    // WebKit hack
+    style.appendChild(document.createTextNode(""));
 
-      // Add the <style> element to the page
-      document.head.appendChild(style);
+    // Add the <style> element to the page
+    document.head.appendChild(style);
 
-      return style;
+    return style;
   })();
 
   // $(window).resize(function() {
@@ -19,11 +19,11 @@ $(document).ready(function(){
 
   var maxIndex = $('div.deck-container .itemGrid').length+2;
   if($(window).width()>978){
-    var scaleX = ($('.liCart').width()+90)/$('.itemGrid').width();
-    var scaleY = 70/$('.itemGrid').height();
+    var scaleX = ($('.liCart').width()+90)/$('.modalToggle').outerWidth();
+    var scaleY = 70/$('.modalToggle').outerHeight();
   }else{
-    var scaleX = $('.liCart').width()/$('.itemGrid').width();
-    var scaleY = $('.liCart').outerHeight()/$('.itemGrid').height();
+    var scaleX = $('.liCart').width()/$('.modalToggle').outerWidth();
+    var scaleY = $('.liCart').outerHeight()/$('.modalToggle').outerHeight();
   }
 
   for (index = 1; index < maxIndex; index++) { 
@@ -36,29 +36,31 @@ $(document).ready(function(){
     // var rand = '#'+(0x1000000+(Math.random())*0xffffff).toString(16).substr(1,6);
 
     if(index==1){
-      style.sheet.insertRule('.modalToggle{background-color:rgba(244, 244, 242,1); z-index:'+indexZ+'}', 0);
-      style.sheet.insertRule('div.deck-container.collapsed .modalToggle{transform:'+'translate('+disX+'%, -'+disY+'%) scale('+scaleX+','+scaleY+')}', 0);
+      style.sheet.insertRule('.modalToggle{z-index:'+indexZ+';}', 0);
+      // style.sheet.insertRule('div.deck-container.collapsed .modalToggle{background-color: black', 1);
+      style.sheet.insertRule('div.deck-container.collapsed .modalToggle{transform: translate(0%, 0%) scale('+scaleX+','+scaleY+');}', 1);
     } else{
-      style.sheet.insertRule('.d'+Number(index)+'{background-color:rgba(244, 244, 242,1); z-index:'+indexZ+'}', 0);
+      style.sheet.insertRule('.d'+Number(index)+'{z-index:'+indexZ+';}', 0);
       // style.sheet.insertRule('.d'+Number(index)+'{background-color:'+rand+'; z-index:'+indexZ+'}', 0);
-      style.sheet.insertRule('div.deck-container.collapsed .itemGrid:nth-child('+Number(index)+'){transform:'+'translate('+disX+'%, -'+disY+'%) scale('+scaleX+','+scaleY+')}', 0);
+      style.sheet.insertRule('div.deck-container.collapsed .itemGrid:nth-child('+Number(index)+'){transform: translate('+disX+'%, -'+disY+'%) scale('+scaleX+','+scaleY+');}', 0);
     }
   }
 
+
+
   $(function() {
-      $('.liCart').click(
-        function () {
-            $('div.deck-container').toggleClass('collapsed');
-        }
-      );
+    $('.liCart').click(
+      function () {
+        $('div.deck-container').toggleClass('collapsed');
+      }
+    );
 
-      $('.modalToggle').click(
-        function () {
-            $('div.deck-container').toggleClass('collapsed');
-        }
-      );
+    $('.modalToggle').click(
+      function () {
+        $('div.deck-container').toggleClass('collapsed');
+      }
+    );
   });
-
 
 
 

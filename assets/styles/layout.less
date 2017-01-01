@@ -127,12 +127,6 @@ html, body {
 
 
 
-
-
-
-
-
-
 // cart modal 相關
 .deck-container {
   overflow-x: hidden;
@@ -151,7 +145,6 @@ html, body {
   visibility: hidden;
 }
 
-@boxSize: 150px;
 .itemGrid {
   position: relative;
   float:right;
@@ -162,10 +155,12 @@ html, body {
 
   visibility: visible;
 
+  background-color:rgba(244, 244, 242,1);
+
   box-sizing: border-box;
-    border-color: black;
-    border-style: solid;
-    border-width: 0px 1px 0px 0px;
+  border-color: black;
+  border-style: solid;
+  border-width: 0px 1px 0px 0px;
 }
 div.deck-container.collapsed .itemGrid {
   visibility: hidden;
@@ -176,15 +171,17 @@ div.deck-container.collapsed .itemGrid {
   float:right;
   width:25%;
 
-  padding-top:25%;
-
-  font-size: 5.3vw;
-  text-align: center;
-
   transform-origin: top right; 
   transition: all 0.5s ease-in-out;
 
   visibility: visible;
+
+  background-color:rgba(244, 244, 242,1);
+
+  padding-top:25%;
+
+  font-size: 5.3vw;
+  text-align: center;
 }
 .deck-container.collapsed .modalToggle {
   visibility: hidden;
@@ -210,6 +207,7 @@ div.deck-container.collapsed .itemGrid {
 
 
 
+// detail design of each item in the cart
 .overlay {
   overflow: hidden;
   position: absolute;
