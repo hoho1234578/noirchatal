@@ -4,7 +4,7 @@
  * @description :: Server-side logic for managing Homes
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
-var _ = require('lodash');
+// var _ = require('lodash');
 
 module.exports = {
 	// 在 policies.js 中有定義，當該 action 執行時，將觸發 dynamicNavBar 這個 action
