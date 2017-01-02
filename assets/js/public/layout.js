@@ -60,6 +60,14 @@ $(document).ready(function(){
         $('div.deck-container').toggleClass('collapsed');
       }
     );
+
+    $('.deck-container').click(
+      function (event) {
+        if(event.target.className == "deck-container"){
+          $('div.deck-container').toggleClass('collapsed');
+        }
+      }
+    );
   });
 
 
@@ -67,7 +75,7 @@ $(document).ready(function(){
   $(".closeToggle").on("click", function() {
     // e.preventDefault();
 
-    $(this).parent().parent().parent().remove();
+    $(this).parent().parent().parent().parent().remove();
 
     $.ajax({
       method: "POST",

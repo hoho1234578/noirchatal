@@ -30,7 +30,8 @@ $(function() {
 	$(".hovereffect").addClass("in");
 
   $(document).on("click","#item_add_to_bag",function(e){
-    $.post("/addToCart", { productNumber: this.value, amount: 5 }, function(res){
+    var amount = $("#item_detail_quantity .form-control").val();
+    $.post("/addToCart", { productNumber: this.value, amount: amount }, function(res){
       if(res.err) {
         // showDialog("錯誤訊息",res.err);
       } else {

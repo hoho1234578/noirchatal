@@ -25,7 +25,7 @@ module.exports = {
 	                    else{ res.send(newCart); }
 	                });
 				}else{
-					Cart.create({ productNumber: productNumber,  amount: 1,  customer: req.session.user }).exec(function(err2, newCart){
+					Cart.create({ productNumber: productNumber,  amount: amount,  customer: req.session.user }).exec(function(err2, newCart){
 						if(err2){ res.send(500,{err:"DB error"}) }
 	                    else{ res.send(newCart); }
 					});
