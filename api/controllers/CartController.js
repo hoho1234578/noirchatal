@@ -15,38 +15,46 @@ module.exports = {
 		var amount = parseInt(req.param("amount"));
 
 		if(typeof req.session.user === "undefined"){
-			console.log("請先登入或註冊會員！");
-			res.send("請先登入或註冊會員！");
+			// console.log("請先登入或註冊會員！");
+			// res.send("請先登入或註冊會員！");
 			// res.cookie('ccart', { items: [1,2,3] });
 
 			Items.findOne({ id: productNumber })
 			.then(function(item){
-				var abc = []
-				// [{
-				// 	'productNumber': 1,
-				// 	'amount': 1,
-				// 	'item_name': "111",
-				// 	'price': 111
-				// },
-				// {
-				// 	'productNumber': 2,
-				// 	'amount': 2,
-				// 	'item_name': "222",
-				// 	'price': 222
-				// }]
-				return [abc]
-			})
-			.spread(function(abc){
-				if(abc.length > 0){
-					var isExist = _.findIndex(abc, function(o) { return o.productNumber == 3; });
-					if(isExist > -1){
-
-					}
-					console.log(result);
+				var price;
+				if(!item.special_price){
+					price = item.price;
 				}else{
-					console.log("result");
+					price = item.special_price;
 				}
-				
+
+				var castratedItem = {
+					'item_name': item.item_name,
+					'price': price,
+					'item_img': item.item_img,
+					'productNumber': item.id,
+				}
+
+				return [castratedItem];
+			})
+			.spread(function(item){
+				console.log(req.cookies);
+				console.log(item);
+				if(typeof req.cookies.cartItems != "undefined" ){
+					var indexOfItem = _.findIndex(item, function(o) { return o.productNumber == productNumber; });
+					if(indexOfItem > -1){
+						res.cookie('cartItems', _.update(req.cookies, 'cartItems['+indexOfItem+'].productNumber', function(n) { return n + amount; }));
+					}else{
+						var ttt = _.concat(req.cookies.cartItems, item);
+						res.cookie('cartItems', ttt);
+					}
+				}else{
+					console.log("no content");
+					// res.cookie('cartItems', [item]);
+					// res.cookie('cart', { items: [1,2,314] });
+				}
+				res.cookie('cart', { items: [1,2,34545] });
+				console.log(req.cookies);
 			});
 		}else{
 			Cart.findOne({ customer: req.session.user.id, productNumber: productNumber }).exec(function(err, cart){
