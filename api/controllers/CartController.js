@@ -21,27 +21,32 @@ module.exports = {
 
 			Items.findOne({ id: productNumber })
 			.then(function(item){
-				var abc = 
-				[{
-					'productNumber': 1,
-					'amount': 1,
-					'item_name': "111",
-					'price': 111
-				},
-				{
-					'productNumber': 2,
-					'amount': 2,
-					'item_name': "222",
-					'price': 222
-				}]
+				var abc = []
+				// [{
+				// 	'productNumber': 1,
+				// 	'amount': 1,
+				// 	'item_name': "111",
+				// 	'price': 111
+				// },
+				// {
+				// 	'productNumber': 2,
+				// 	'amount': 2,
+				// 	'item_name': "222",
+				// 	'price': 222
+				// }]
 				return [abc]
 			})
 			.spread(function(abc){
-				var isExist = _.findIndex(abc, function(o) { return o.productNumber == 3; });
-				if(isExist > -1){
-					
+				if(abc.length > 0){
+					var isExist = _.findIndex(abc, function(o) { return o.productNumber == 3; });
+					if(isExist > -1){
+
+					}
+					console.log(result);
+				}else{
+					console.log("result");
 				}
-				console.log(result);
+				
 			});
 		}else{
 			Cart.findOne({ customer: req.session.user.id, productNumber: productNumber }).exec(function(err, cart){
