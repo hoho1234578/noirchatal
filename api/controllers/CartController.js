@@ -15,10 +15,6 @@ module.exports = {
 		var amount = parseInt(req.param("amount"));
 
 		if(typeof req.session.user === "undefined"){
-			// console.log("請先登入或註冊會員！");
-			// res.send("請先登入或註冊會員！");
-			// res.cookie('ccart', { items: [1,2,3] });
-
 			Items.findOne({ id: productNumber })
 			.then(function(item){
 				var price;
@@ -33,28 +29,23 @@ module.exports = {
 					'price': price,
 					'item_img': item.item_img,
 					'productNumber': item.id,
+					'amount': amount
 				}
 
 				return [castratedItem];
 			})
 			.spread(function(item){
-				console.log(req.cookies);
-				console.log(item);
 				if(typeof req.cookies.cartItems != "undefined" ){
-					var indexOfItem = _.findIndex(item, function(o) { return o.productNumber == productNumber; });
-					if(indexOfItem > -1){
-						res.cookie('cartItems', _.update(req.cookies, 'cartItems['+indexOfItem+'].productNumber', function(n) { return n + amount; }));
-					}else{
-						var ttt = _.concat(req.cookies.cartItems, item);
-						res.cookie('cartItems', ttt);
+					var indexOfItem = _.findIndex(req.cookies.cartItems, function(o) { return o.productNumber == productNumber; });
+					if(indexOfItem > -1){ // update item
+						res.cookie('cartItems', _.update(req.cookies, 'cartItems['+indexOfItem+'].amount', function(n) { return n + amount; }).cartItems);
+					}else{ // no item
+						res.cookie('cartItems', _.concat(req.cookies.cartItems, item));
 					}
-				}else{
-					console.log("no content");
-					// res.cookie('cartItems', [item]);
-					// res.cookie('cart', { items: [1,2,314] });
+				}else{ // empty cart
+					res.cookie('cartItems', [item]);
 				}
-				res.cookie('cart', { items: [1,2,34545] });
-				console.log(req.cookies);
+				return res.ok();
 			});
 		}else{
 			Cart.findOne({ customer: req.session.user.id, productNumber: productNumber }).exec(function(err, cart){

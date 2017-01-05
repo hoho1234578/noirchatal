@@ -10,8 +10,6 @@ module.exports = {
 	// 在 policies.js 中有定義，當該 action 執行時，將觸發 dynamicNavBar 這個 action
 	// (HomeController -> config/policies.js -> policies//dynamicNavBar.js -> services/partials.js)
 	index: function (req, res) { 
-		res.cookie('cart', { items: [1,2,3] });
-		console.log(req.cookies);
 		Items.find({ where: {available: true}, limit: 4, sort: 'id DESC' }).exec(function (err, new_items) {
 			if (err) { return res.serverError(err); }
 			for (var i = 0; i<new_items.length; i++){
