@@ -44,7 +44,6 @@ module.exports = {
 				});
 			});
 		}
-		
 	},
 
 	show_detail: function (req, res) {
@@ -62,7 +61,6 @@ module.exports = {
 			}else{
 				return res.send('This item is not available now!');
 			}
-			
 		});
 	},
 
@@ -72,8 +70,6 @@ module.exports = {
 			if (err) { return res.serverError(err); }
 			console.log(item);
 			return res.send('Hi there!');
-
-			
 		});
 	},
 };
@@ -85,5 +81,4 @@ var intersect = function (a, b) {
     return a.filter(function (e) {
         if (b.indexOf(e) !== -1) return true;
     });
-
 }

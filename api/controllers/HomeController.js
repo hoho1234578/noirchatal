@@ -26,60 +26,6 @@ module.exports = {
 	               	// '/styles/custom_shop_item.css'		// 主要效果: 圖片 hover
 	            ]
 			});
-
-
-
-			// if(typeof req.session.user == "undefined"){
-			// 	return res.view({
-			//     	new_items: new_items,
-			//     	scripts: [
-	  //               	'/js/home.js'
-	  //               ],
-	  //               stylesheets: [
-	  //               	// '/styles/custom_home.css',
-	  //               	// '/styles/custom_shop_item.css'		// 主要效果: 圖片 hover
-	  //               ],
-	  //               cart: []
-			//     });
-			// }else{
-			// 	User.findOne({id: req.session.user.id}).populate('cart')
-			// 	.then(function(currentUser){
-			// 		var ItemImgs = Items.find({id: _.map(currentUser.cart, 'productNumber')}).then(function(ItemImgs){
-			// 			return ItemImgs;
-			// 		});
-			// 		return [currentUser, ItemImgs];
-			// 	})
-			// 	.spread(function(currentUser, ItemImgs){
-			// 		ItemImgs = _.keyBy(ItemImgs, 'id');
-
-			// 		currentUser.cart = _.map(currentUser.cart, function(cart) {
-			// 			cart.item_img = ItemImgs[cart.productNumber].item_img;
-			// 			cart.item_name = ItemImgs[cart.productNumber].item_name;
-			// 			if(!ItemImgs[cart.productNumber].special_price){
-			// 				cart.price = ItemImgs[cart.productNumber].price;
-			// 			}else{
-			// 				cart.price = ItemImgs[cart.productNumber].special_price;
-			// 			}
-			// 			return cart;
-			// 		});
-			// 		// res.json(currentUser);
-			// 		return res.view({
-			// 	    	new_items: new_items,
-			// 	    	scripts: [
-		 //                	'/js/home.js'
-		 //                ],
-		 //                stylesheets: [
-		 //                	// '/styles/custom_home.css',
-		 //                	// '/styles/custom_shop_item.css'		// 主要效果: 圖片 hover
-		 //                ],
-		 //                cart: currentUser.cart
-			// 	    });
-			// 	})
-			// 	.catch(function(err){
-			// 		return res.serverError(err);
-			// 	});
-
-			// }
 		});
 	},
 };
