@@ -72,14 +72,18 @@ module.exports = {
 		var amount = parseInt(req.param("amount"));
 
 		if(typeof req.session.user === "undefined"){
-			console.log("請先登入或註冊會員！");
-			res.send("請先登入或註冊會員！");
+			// console.log("請先登入或註冊會員！");
+			// res.send("請先登入或註冊會員！");
+			var result = _.remove(req.cookies.cartItems, function(o){
+				return o.productNumber != productNumber;
+			});
+			res.cookie('cartItems', result);
 		}else{
 			Cart.destroy({ customer: req.session.user.id, productNumber: productNumber }).exec(function (err) {
                 if (err) { return res.serverError(err); }
-                return res.ok();
             });
 		}
+		return res.ok();
 	},
 };
 
