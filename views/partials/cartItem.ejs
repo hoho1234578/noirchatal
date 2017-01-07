@@ -1,0 +1,54 @@
+
+        <div class='itemGrid d<%=indexOfItem%>'>
+          <div class='overlay'>
+
+            <div class='titleArea'>
+              <div class='overlay'>
+                <div class='centerDiv' style='font-size: 2.5vw;'>
+                  <%= eachItem.item_name %>
+                </div>
+              </div>
+            </div>
+
+            <div class='closeArea'>
+              <div class='overlay'>
+                <span class='glyphicon glyphicon-remove closeToggle' value='<%= eachItem.productNumber %>'></span>
+              </div>
+            </div>
+
+            <div class='imgArea'>
+              <div class='overlay' style="background-image:url(/images/collections/<%= eachItem.item_img[0] %>); background-size: cover; background-position: 50%">
+              </div>
+            </div>
+
+            <div class='priceArea'>
+              <div class='overlay'>
+                <div class='operandArea'>
+                  <div class='centerDiv'>
+                    $<%= eachItem.price %>
+                  </div>
+                </div>
+                <div class='operatorArea'>
+                  <div class='centerDiv'>
+                    ×
+                  </div>
+                </div>
+                <div class='operandArea'>
+                  <div class='centerDiv'>
+                    <%= eachItem.amount %>
+                  </div>
+                </div>
+                <div class='operatorArea'>
+                  <div class='centerDiv'>
+                    =
+                  </div>
+                </div>
+                <div class='operandArea'>
+                  <div class='centerDiv'>
+                    $<%= eachItem.price*eachItem.amount %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
