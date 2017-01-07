@@ -3,29 +3,28 @@
 //    $(this).addClass("active");
 // });
 
-var page_num = 1;
 
-$(window).endlessScroll({
-  fireOnce: false,
-  fireDelay: false,
-  inflowPixels: 300,
-  // loader: '<div class="loading"><div>',
-  callback: function(p){
-    console.log("test");
-    page_num++;
-    // $("#item_list_page").load('./item.ejs');
-    // $.get("/nextPage", function(res){
-    //   if(res.err) {
-
-    //   } else {
-    //     console.log(res);
-    //   }
-    // });
-  }
-});
+var page_num = 0;
 
 $(function() {
-  
+
+  for ( var i = 0; i < 6; i++ ){
+    $('.item_list').slice(i, i+1).delay(i*50).fadeIn();
+  }
+
+  $(window).scroll(function() {
+    // End of the document reached?
+    if ($(document).height() - $(window).height() == $(window).scrollTop()) {
+      var a = 6+3*page_num;
+      var b = a + 3;
+      // $('.item_list').slice(a, b).delay(page_num*50).fadeIn();
+
+      for ( var i = 0; i < 3; i++ ){
+        $('.item_list').slice(a+i, a+i+1).delay(i*50).fadeIn();
+      }
+      page_num++;
+    }
+  });
 
 	$(".hovereffect").addClass("in");
 
