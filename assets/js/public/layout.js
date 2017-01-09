@@ -40,7 +40,8 @@ $(document).ready(function(){
       // style.sheet.insertRule('div.deck-container.collapsed .modalToggle{background-color: black', 1);
       style.sheet.insertRule('div.deck-container.collapsed .modalToggle{transform: translate(0%, 0%) scale('+scaleX+','+scaleY+');}', 1);
     } else{
-      style.sheet.insertRule('.d'+Number(index)+'{z-index:'+indexZ+';}', 0);
+      // style.sheet.insertRule('.d'+Number(index)+'{z-index:'+indexZ+';}', 0);
+      style.sheet.insertRule($( ".itemGrid" ).eq(index-2).attr("class")+'{z-index:'+indexZ+';}', 0);
       // style.sheet.insertRule('.d'+Number(index)+'{background-color:'+rand+'; z-index:'+indexZ+'}', 0);
       style.sheet.insertRule('div.deck-container.collapsed .itemGrid:nth-child('+Number(index)+'){transform: translate('+disX+'%, -'+disY+'%) scale('+scaleX+','+scaleY+');}', 0);
     }
