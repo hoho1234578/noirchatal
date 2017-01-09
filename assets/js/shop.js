@@ -34,7 +34,7 @@ $(function() {
       if(res.err) {
         // showDialog("錯誤訊息",res.err);
       } else {
-        console.log(res);
+        console.log(res.type);
       }
     });
   });
