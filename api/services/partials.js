@@ -14,7 +14,11 @@ module.exports = {
 
     navBar: function(req, cb) {
     	if(typeof req.session.user == "undefined"){
-			sails.hooks.http.app.render('partials/navbar', {cart: req.cookies.cartItems}, cb);
+    		if(typeof req.cookies.cartItems == "undefined"){
+    			sails.hooks.http.app.render('partials/navbar', {cart: []}, cb);
+    		}else{
+    			sails.hooks.http.app.render('partials/navbar', {cart: req.cookies.cartItems}, cb);
+    		}
 		}else{
 			User.findOne({id: req.session.user.id}).populate('cart')
 			.then(function(currentUser){

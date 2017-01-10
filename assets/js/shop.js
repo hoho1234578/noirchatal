@@ -30,11 +30,47 @@ $(function() {
 
   $(document).on("click","#item_add_to_bag",function(e){
     var amount = $("#item_detail_quantity .form-control").val();
-    $.post("/addToCart", { productNumber: this.value, amount: amount }, function(res){
+    var productNumber = this.value;
+    $.post("/addToCart", { productNumber: productNumber, amount: amount }, function(res){
       if(res.err) {
         // showDialog("錯誤訊息",res.err);
       } else {
-        console.log(res);
+        switch(res.type){
+          case "create":
+            var style = (function() {
+              // Create the <style> tag
+              var style = document.createElement("style");
+
+              // WebKit hack
+              style.appendChild(document.createTextNode(""));
+
+              // Add the <style> element to the page
+              document.head.appendChild(style);
+
+              return style;
+            })();
+
+            if($(window).width()>978){
+              var scaleX = ($('.liCart').width()+90)/(screen.width/4);
+              var scaleY = 70/(screen.width/4);
+            }else{
+              var scaleX = $('.liCart').width()/(screen.width/4);
+              var scaleY = $('.liCart').outerHeight()/(screen.width/4);
+            }
+            var indexToInject = $('.itemGrid').length+2;
+            var row = Math.ceil(indexToInject/4);
+            var column = indexToInject%4;
+            var disX = 100*((column+3)%4);
+            var disY = 100*(row-1);
+
+            style.sheet.insertRule('div.deck-container.collapsed .itemGrid:nth-child('+Number(indexToInject)+'){transform: translate('+disX+'%, -'+disY+'%) scale('+scaleX+','+scaleY+');}', 0);
+          
+            $('.deck-container').append(res.data);
+          break;
+          case "update":
+            $('.cItem'+productNumber).replaceWith(res.data);
+          break;
+        }
       }
     });
   });
