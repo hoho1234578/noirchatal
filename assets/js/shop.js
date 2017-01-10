@@ -37,8 +37,6 @@ $(function() {
       } else {
         switch(res.type){
           case "create":
-            
-
             var style = (function() {
               // Create the <style> tag
               var style = document.createElement("style");
@@ -53,30 +51,21 @@ $(function() {
             })();
 
             if($(window).width()>978){
-              var scaleX = ($('.liCart').width()+90)/$('.modalToggle').outerWidth();
-              var scaleY = 70/$('.modalToggle').outerHeight();
-              // console.log(scaleX);
-              // console.log(scaleY);
+              var scaleX = ($('.liCart').width()+90)/(screen.width/4);
+              var scaleY = 70/(screen.width/4);
             }else{
-              var scaleX = $('.liCart').width()/$('.modalToggle').outerWidth();
-              var scaleY = $('.liCart').outerHeight()/$('.modalToggle').outerHeight();
-              console.log($('.liCart').width());
-              console.log($('.modalToggle').outerWidth());
+              var scaleX = $('.liCart').width()/(screen.width/4);
+              var scaleY = $('.liCart').outerHeight()/(screen.width/4);
             }
             var indexToInject = $('.itemGrid').length+2;
             var row = Math.ceil(indexToInject/4);
             var column = indexToInject%4;
             var disX = 100*((column+3)%4);
             var disY = 100*(row-1);
-            var indexZ = 0;
 
-            style.sheet.insertRule('.cItem'+productNumber+'{z-index:'+indexZ+';}', 0);
-
-            console.log('div.deck-container.collapsed .itemGrid:nth-child('+Number(indexToInject)+'){transform: translate('+disX+'%, -'+disY+'%) scale('+scaleX+','+scaleY+');}');
             style.sheet.insertRule('div.deck-container.collapsed .itemGrid:nth-child('+Number(indexToInject)+'){transform: translate('+disX+'%, -'+disY+'%) scale('+scaleX+','+scaleY+');}', 0);
           
             $('.deck-container').append(res.data);
-
           break;
           case "update":
             $('.cItem'+productNumber).replaceWith(res.data);
