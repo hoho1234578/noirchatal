@@ -72,8 +72,7 @@ $(document).ready(function(){
   });
 
 
-
-  $(".closeToggle").on("click", function() {
+  $(document).on("click",".closeToggle",function(e){
     // e.preventDefault();
 
     $(this).parent().parent().parent().parent().remove();
