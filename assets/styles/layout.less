@@ -270,3 +270,17 @@ div.deck-container.collapsed .itemGrid {
     font-size: 2.5vw;
   }
 }
+
+// 取消 bootstrap model 預設 fade from top
+.modal.fade:not(.in) .modal-dialog {
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+
+.loginOrNotArea {
+  position: relative;
+  float: left;
+  width: 50%;
+  height: 30vh;
+  padding: 0px 15px 0px 15px;
+}

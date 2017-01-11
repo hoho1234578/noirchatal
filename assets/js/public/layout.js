@@ -94,4 +94,12 @@ $(document).ready(function(){
     });
 
   });
+
+
+  $(document).on("click","#checkoutModalToggle",function(e){
+    // alert(12);
+    $('.checkoutModal').toggleClass('collapsed');
+  });
+
+
 });
