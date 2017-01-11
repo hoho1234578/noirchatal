@@ -37,6 +37,11 @@
       <div class="modalToggle">
         <div class="toggleContent">
           <span class="glyphicon glyphicon-search" aria-hidden="true"></span>   CART
+          <%
+          var totalPrice = 0;
+          for(var i=0; i<cart.length; i++) { totalPrice = totalPrice + cart[i].price*cart[i].amount; }
+          %>
+          $<%= totalPrice %>
         </div>
       </div>
 
