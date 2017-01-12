@@ -97,9 +97,31 @@ $(document).ready(function(){
 
 
   $(document).on("click","#checkoutModalToggle",function(e){
-    // alert(12);
     $('.checkoutModal').toggleClass('collapsed');
   });
+
+  $(document).on("click","#checkoutModalLogin",function(e){
+    // $('.checkoutModal').toggleClass('collapsed');
+    alert(123456);
+
+    $.ajax({
+      method: "POST",
+      url: "/login",
+      // processData: false,
+      // contentType: 'html',
+      data: { account: $(this).attr('value'), amount: 5 }
+    })
+    .done(function(data,status,xhr){
+      xhr.getResponseHeader("myHeader");
+      console.log("done");
+      $(this).parent().parent().parent().parent().remove();
+    })
+    .fail(function(){
+      console.log("fail");
+    });
+  });
+
+
 
 
 });
