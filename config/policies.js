@@ -43,6 +43,10 @@ module.exports.policies = {
     'index': 'dynamicNavBar'
   },
 
+  'checkoutController': {
+    'index': 'dynamicNavBar'
+  },
+
   /***************************************************************************
   *                                                                          *
   * Here's an example of mapping some policies to run before a controller    *

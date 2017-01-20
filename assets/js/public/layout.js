@@ -108,7 +108,7 @@ $(document).ready(function(){
     })
     .done(function(data,status,xhr){
       xhr.getResponseHeader("myHeader");
-      console.log("done");
+      console.log(data);
     })
     .fail(function(){
       console.log("fail");
