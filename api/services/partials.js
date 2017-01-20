@@ -12,13 +12,15 @@ module.exports = {
         }); 
     },
 
-    navBar: function(req, cb) {
+    getCartContent: function(req, cb) {
+    	if(typeof req.cookies.cartItems == "undefined"){
+    		var cookiesCart = [];
+    	}else{
+    		var cookiesCart = req.cookies.cartItems;
+    	}
+
     	if(typeof req.session.user == "undefined"){
-    		if(typeof req.cookies.cartItems == "undefined"){
-    			sails.hooks.http.app.render('partials/navbar', {cart: []}, cb);
-    		}else{
-    			sails.hooks.http.app.render('partials/navbar', {cart: req.cookies.cartItems}, cb);
-    		}
+    		cb( {cookiesCart: cookiesCart} );
 		}else{
 			User.findOne({id: req.session.user.id}).populate('cart')
 			.then(function(currentUser){
@@ -40,7 +42,7 @@ module.exports = {
 					}
 					return cart;
 				});
-				sails.hooks.http.app.render('partials/navbar', {cart: currentUser.cart}, cb);
+				cb( {cookiesCart: cookiesCart, dbCart: currentUser.cart} );
 			})
 			.catch(function(err){
 				return res.serverError(err);
