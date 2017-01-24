@@ -11,11 +11,12 @@ module.exports = {
 			return res.view({
 			    cart: cartContent,
 			    scripts: [
-	            	'/js/vendor/bootstrap-table.js'
+	            	'/js/vendor/bootstrap-table.js',
+	            	'/js/vendor/bootstrap-table-mobile.js'
 	            ],
 	            stylesheets: [
-	               	'/styles/bootstrap-table.css',
-	               	'/styles/checkout.css',
+	               	// '/styles/bootstrap-table.css',
+	               	// '/styles/checkout.css',
 	               	// '/styles/custom_shop_item.css'		// 主要效果: 圖片 hover
 	            ]
 			});
