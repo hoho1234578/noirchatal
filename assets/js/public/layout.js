@@ -82,7 +82,7 @@ $(document).ready(function(){
       url: "/throwFromCart",
       // processData: false,
       // contentType: 'html',
-      data: { productNumber: $(this).attr('value'), amount: 5 }
+      data: { productNumber: $(this).attr('value') }
     })
     .done(function(data,status,xhr){
       xhr.getResponseHeader("myHeader");

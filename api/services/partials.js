@@ -42,7 +42,8 @@ module.exports = {
 					}
 					return cart;
 				});
-				cb( {cookiesCart: cookiesCart, dbCart: currentUser.cart} );
+				// cb( {cookiesCart: cookiesCart, dbCart: currentUser.cart} );
+				cb( {dbCart: currentUser.cart} );
 			})
 			.catch(function(err){
 				return res.serverError(err);

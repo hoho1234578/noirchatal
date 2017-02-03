@@ -4,6 +4,9 @@
 
 <div id="shop_page" class="row-fluid">
 	<div style="width:70%;margin: 0 auto;">
+
+
+
 		<table
 			style="background-color: white;"
 			class="table-no-bordered"
@@ -23,6 +26,9 @@
 			data-mobile-responsive="true"
 			>
 		</table>
+
+
+
 	</div>
 	
 </div>
@@ -31,6 +37,11 @@
 <script>
 	var data = <%- JSON.stringify(cart) %>;
 	var	$table = $('#table');
+	if(typeof data.dbCart == "undefined"){
+		var presentCart = data.cookiesCart;
+	}else{
+		var presentCart = data.dbCart;
+	}
 
 	// access inner elements in the data source object
 	// http://stackoverflow.com/questions/26084422/bootstrap-tables-how-to-access-inner-elements-in-the-data-source-object
@@ -62,16 +73,27 @@
 	}
 	window.actionEvents = {
 	    'click .remove': function (e, value, row, index) {
-	        console.log(row, row.id);
-	        $table.bootstrapTable('remove', {field: 'id', values: [row.id]});
+	    	$.ajax({
+		      method: "POST",
+		      url: "/throwFromCart",
+		      data: { productNumber: row.productNumber }
+		    })
+		    .done(function(data,status,xhr){
+		      xhr.getResponseHeader("myHeader");
+		      console.log("done");
+		      $table.bootstrapTable('remove', {field: 'productNumber', values: [row.productNumber]});
+		    })
+		    .fail(function(){
+		      console.log("fail");
+		    });
 	    }
 	};
 
 
 
-	$('#table').bootstrapTable({
-	    data: data.dbCart,
-	    responseHandler: responseHandler(data.dbCart),
+	$table.bootstrapTable({
+	    data: presentCart,
+	    responseHandler: responseHandler(presentCart),
 	    columns: [{
 	        field: 'item_img.0',
 	        formatter: "imageFormatter",

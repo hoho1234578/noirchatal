@@ -97,7 +97,6 @@ module.exports = {
 		// console.log(req.body);	// get POST parameters
 		// console.log(req.params);	// get GET parameters
 		var productNumber = req.param("productNumber");
-		var amount = parseInt(req.param("amount"));
 
 		if(typeof req.session.user === "undefined"){
 			// console.log("請先登入或註冊會員！");
