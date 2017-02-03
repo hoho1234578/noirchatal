@@ -5,6 +5,7 @@
 <div id="shop_page" class="row-fluid">
 	<div style="width:70%;margin: 0 auto;">
 		<table
+			style="background-color: white;"
 			class="table-no-bordered"
 			id="table"
 
@@ -20,7 +21,6 @@
 			data-id-field="id"
 			data-smart-display="true"
 			data-mobile-responsive="true"
-			data-response-handler="responseHandler"
 			>
 		</table>
 	</div>
@@ -29,16 +29,17 @@
 
 
 <script>
-	var test = <%- JSON.stringify(cart) %>;
-	console.log(test.dbCart);
-
+	var data = <%- JSON.stringify(cart) %>;
+	var	$table = $('#table');
 
 	// access inner elements in the data source object
 	// http://stackoverflow.com/questions/26084422/bootstrap-tables-how-to-access-inner-elements-in-the-data-source-object
 	function responseHandler(res) {
         var flatArray = [];
         $.each(res, function(i, element) { 
-            flatArray.push(JSON.flatten(element));
+        	element.subtotal = element.amount * element.price;
+        	flatArray.push(element);
+            // flatArray.push(JSON.flatten(element));
         });
         return flatArray;
     }
@@ -61,15 +62,16 @@
 	}
 	window.actionEvents = {
 	    'click .remove': function (e, value, row, index) {
-	        alert('You click remove icon, row: ' + JSON.stringify(row));
-	        console.log(value, row, index);
+	        console.log(row, row.id);
+	        $table.bootstrapTable('remove', {field: 'id', values: [row.id]});
 	    }
 	};
 
 
 
 	$('#table').bootstrapTable({
-	    data: test.dbCart,
+	    data: data.dbCart,
+	    responseHandler: responseHandler(data.dbCart),
 	    columns: [{
 	        field: 'item_img.0',
 	        formatter: "imageFormatter",
@@ -83,6 +85,11 @@
 	        title: '數量',
 	        sortable: true
 	    }, {
+	    	field: 'subtotal',
+	        title: '小計',
+	        sortable: true,
+
+	    }, {
 	        field: 'action',
 	        title: '刪除',
 	        formatter: "actionFormatter",
@@ -90,4 +97,7 @@
 	        width: "60px"
 	    }, ]
 	});
+
+
+
 </script>
